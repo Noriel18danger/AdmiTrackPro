@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vehículos - AdmiTrackPro</title>
+    <title>Mis Vehículos - AdmiTrackPro</title>
     <link href="https://fonts.googleapis.com/css2?family=Faster+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
     <header class="site-header">
@@ -18,10 +19,9 @@
     </header>
     <div class="container">
         <div class="intro">
-            <a href="nuevo_vehiculo.html" class="btn">Nuevo Vehículo</a>
-            <a href="mis_vehiculos.html" class="btn">Mis Vehículos</a>
-            <h1>Vehículos</h1>
-            <p>Gestión de vehículos en AdmiTrackPro.</p>
+            <h1>Mis Vehículos</h1>
+            <p>Aquí puedes ver y gestionar todos tus vehículos registrados en AdmiTrackPro.</p>
+            <div id="vehicles-container" class="vehicles-grid"></div>
         </div>
         <div class="footer">
             <p>&copy; 2023 AdmiTrackPro. Todos los derechos reservados.</p>

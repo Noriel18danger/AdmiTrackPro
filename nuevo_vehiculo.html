@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Vehículo - AdmiTrackPro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Faster+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <a href="index.html" class="logo-link">
+            <h1 class="logo" style="font-family: 'Faster One', sans-serif;">AdmiTrackPro</h1>
+        </a>
+    </header>
+    <div class="container">
+        <div class="intro">
+            <h1>Registrar Nuevo Vehículo</h1>
+            <form action="submit_vehiculo.html" method="post" class="vehicle-form">
+                <div class="form-group">
+                    <label for="marca">Marca:</label>
+                    <input type="text" id="marca" name="marca" required>
+                </div>
+                <div class="form-group">
+                    <label for="modelo">Modelo:</label>
+                    <input type="text" id="modelo" name="modelo" required>
+                </div>
+                <div class="form-group">
+                    <label for="anio">Año:</label>
+                    <input type="number" id="anio" name="anio" required>
+                </div>
+                <div class="form-group">
+                    <label for="tipo">Tipo de Vehículo:</label>
+                    <select id="tipo" name="tipo" required>
+                        <option value="sedan">Sedán</option>
+                        <option value="suv">SUV</option>
+                        <option value="todoterreno">Todoterreno</option>
+                        <option value="coupe">Coupé</option>
+                        <option value="motocicleta">Motocicleta</option>
+                        <!-- Agregar más opciones según sea necesario -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="chasis">Número de Chasis/VIN (opcional):</label>
+                    <input type="text" id="chasis" name="chasis">
+                </div>
+                <div class="form-group">
+                    <label for="motor">Número de Motor (opcional):</label>
+                    <input type="text" id="motor" name="motor">
+                </div>
+                <div class="form-group">
+                    <label for="patente">Patente:</label>
+                    <input type="text" id="patente" name="patente" required>
+                </div>
+                <div class="form-group">
+                    <label for="color">Color:</label>
+                    <input type="text" id="color" name="color" required>
+                </div>
+                <div class="form-group">
+                    <label for="kilometraje">Kilometraje Actual:</label>
+                    <input type="number" id="kilometraje" name="kilometraje" required>
+                </div>
+                <div class="form-group">
+                    <label for="combustible">Tipo de Combustible:</label>
+                    <select id="combustible" name="combustible" required>
+                        <option value="gasolina">Gasolina</option>
+                        <option value="diesel">Diesel</option>
+                        <option value="hibrido">Híbrido</option>
+                        <option value="electrico">Eléctrico</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="transmision">Tipo de Transmisión:</label>
+                    <select id="transmision" name="transmision" required>
+                        <option value="manual">Manual</option>
+                        <option value="automatica">Automática</option>
+                        <option value="cvt">CVT</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Registrar Vehículo</button>
+            </form>
+        </div>
+        <div class="footer">
+            <p>&copy; 2023 AdmiTrackPro. Todos los derechos reservados.</p>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
