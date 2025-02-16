@@ -16,7 +16,7 @@ body {
     background-color: #000000;
     padding: 10px 0;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para mejorar el aspecto */
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.1); /* Sombra para mejorar el aspecto */
     position: fixed;
     top: 0;
     z-index: 1000;
@@ -40,12 +40,12 @@ body {
 .container {
     padding: 20px;
     width: 100%;
-    max-width: 420px; /* Ajuste para un diseño más amplio */
+    max-width: 1000px; /* Ajuste para un diseño más amplio */
     display: flex;
     flex-direction: column;
     align-items: center; /* Centrar todo horizontalmente */
     animation: fadeIn 1s ease-in-out;
-    margin-top: 80px; /* Espacio para el header fijo */
+    margin-top: 45vh; /* Espacio adicional para que el formulario se vea desde más arriba */
 }
 
 .intro {
@@ -140,9 +140,10 @@ body {
 }
 
 .form-group {
-    flex: 1 1 48%;
     display: flex;
     flex-direction: column;
+    margin-bottom: 15px;
+    width: 100%;
 }
 
 .form-group label {
@@ -154,11 +155,12 @@ body {
 .form-group input,
 .form-group select,
 .form-group textarea {
-    padding: 8px;
+    padding: 10px;
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 5px;
     transition: border-color 0.3s;
+    width: 100%;
 }
 
 .form-group input:focus,
@@ -312,14 +314,14 @@ body {
 
 .registro-form {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-direction: column;
+    gap: 15px;
     margin-top: 20px;
 }
 
 .registro-form h3 {
     width: 100%;
-    font-size: 24px;
+    font-size: 20px;
     color: #ff0000;
     margin-bottom: 10px;
     border-bottom: 2px solid #ff0000;
@@ -327,9 +329,10 @@ body {
 }
 
 .registro-form .form-group {
-    flex: 1 1 48%;
     display: flex;
     flex-direction: column;
+    margin-bottom: 15px;
+    width: 100%;
 }
 
 .registro-form .form-group label {
@@ -346,6 +349,7 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
     transition: border-color 0.3s;
+    width: 100%;
 }
 
 .registro-form .form-group input:focus,
@@ -356,7 +360,7 @@ body {
 
 .registro-form .form-group textarea {
     resize: vertical;
-    min-height: 100px;
+    min-height: 80px;
 }
 
 .registro-form button {
@@ -377,4 +381,15 @@ body {
     background-color: #cc0000;
     transform: scale(1.05);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.form-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 30px; /* Espacio adicional para bajar todo el formulario */
 }

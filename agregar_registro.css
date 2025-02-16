@@ -1,0 +1,178 @@
+.agregar-registro .container {
+    margin-top: 405vh; /* Espacio adicional para que el formulario se vea desde más arriba */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInContainer 1s ease-in-out;
+}
+
+.agregar-registro .form-container {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 0.5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 87%;
+    max-width: 600px;
+    margin: 0 auto;
+    animation: slideIn 1.2s ease-in-out;
+}
+
+.agregar-registro .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    animation: fadeInFormGroup 0.5s ease-in-out;
+}
+
+.agregar-registro .form-group label {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.agregar-registro .form-group input,
+.agregar-registro .form-group select,
+.agregar-registro .form-group textarea {
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.agregar-registro .form-group input:focus,
+.agregar-registro .form-group select:focus,
+.agregar-registro .form-group textarea:focus {
+    border-color: #f71919;
+    outline: none;
+}
+
+.agregar-registro .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.agregar-registro .btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff0000;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    animation: bounceIn 1s ease-in-out;
+}
+
+.agregar-registro .btn:hover {
+    background-color: #c00000;
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.agregar-registro .intro {
+    font-family: 'Faster One', sans-serif;
+}
+
+.agregar-registro .intro h1 {
+    font-size: 28px;
+    color: #c40000;
+    margin-bottom: 20px;
+    text-align: center;
+    animation: fadeInTitle 2s ease-in-out;
+}
+
+.agregar-registro .intro p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+    text-align: center;
+    animation: fadeInText 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInContainer {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInFormGroup {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInTitle {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}

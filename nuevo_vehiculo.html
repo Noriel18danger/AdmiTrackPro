@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="nuevo_vehiculo.css">
 </head>
 <body>
     <header class="site-header">
@@ -19,7 +20,7 @@
     <div class="container">
         <div class="intro">
             <h1>Registrar Nuevo Vehículo</h1>
-            <form action="submit_vehiculo.html" method="post" class="vehicle-form">
+            <form id="vehiculo-form" class="vehicle-form" onsubmit="saveVehicle(event)">
                 <div class="form-group">
                     <label for="marca">Marca:</label>
                     <input type="text" id="marca" name="marca" required>
