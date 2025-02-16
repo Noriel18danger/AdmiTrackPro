@@ -1,0 +1,168 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0; /* Fondo ligeramente gris para mejor contraste */
+    color: #333;
+    flex-direction: column; /* Centrar todo verticalmente */
+}
+
+.site-header {
+    width: 100%;
+    background-color: #000000;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para mejorar el aspecto */
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-link {
+    text-decoration: none;
+}
+
+.logo {
+    font-family: 'Faster One', sans-serif;
+    font-size: 36px;
+    color: #ff0000;
+    margin: 0;
+    font-weight: 700;
+}
+
+.container {
+    padding: 20px;
+    width: 100%;
+    max-width: 420px; /* Ajuste para un diseño más amplio */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar todo horizontalmente */
+    animation: fadeIn 1s ease-in-out;
+    margin-top: 60px; /* Espacio para el header fijo */
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.intro p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* Espacio entre los botones */
+    margin-bottom: 20px; /* Añadir espacio debajo de los botones */
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    animation: bounceIn 1s ease-in-out;
+    flex: 1 1 calc(50% - 20px); /* Ajuste para que los botones ocupen la mitad del ancho con espacio */
+    max-width: 150px; /* Ajuste para que los botones tengan un ancho máximo */
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para los botones */
+    font-family: 'Lexend Deca', sans-serif; /* Aplicar la fuente Lexend Deca */
+    text-transform: uppercase; /* Todo en mayúsculas */
+}
+
+.btn:hover {
+    background-color: #cc0000;
+    transform: scale(1.1); /* Aumentar la escala al pasar el mouse */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el mouse */
+}
+
+.description {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.description h2 {
+    font-size: 28px;
+    color: #ff0000;
+    margin-bottom: 10px;
+}
+
+.description p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.footer {
+    background-color: #ffffff;
+    color: #333;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Sombra para mejorar el aspecto */
+    position: fixed;
+    bottom: 0;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px; /* Ajuste para dispositivos móviles */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Añadir movimiento vertical */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100px); /* Aumentar el desplazamiento inicial */
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3); /* Aumentar la escala inicial */
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2); /* Aumentar la escala intermedia */
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
