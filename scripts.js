@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Plataforma Móvil cargada y lista.');
     initializeMobilePlatform();
     loadVehicles();
+    loadRegistros();
 });
 
 function initializeMobilePlatform() {
@@ -35,7 +36,7 @@ function loadVehicles() {
                 <p><strong>Transmisión:</strong> ${vehicle.transmision}</p>
                 <div class="vehicle-buttons">
                     <button class="btn delete-btn" onclick="deleteVehicle(${index})">Eliminar</button>
-                    <button class="btn register-btn" onclick="window.location.href='registros.html'">Registro</button>
+                    <button class="btn register-btn" onclick="redirectToRegistros(${index})">Registro</button>
                     <button class="btn qr-btn" onclick="toggleQRCode(${index})">MyTrack</button>
                 </div>
                 <div class="qr-code" id="qr-code-${index}" style="display: none;"></div>
@@ -69,6 +70,74 @@ function toggleQRCode(index) {
     let qrCodeContainer = document.getElementById(`qr-code-${index}`);
     if (qrCodeContainer) {
         qrCodeContainer.style.display = qrCodeContainer.style.display === 'none' ? 'block' : 'none';
+    }
+}
+
+function redirectToRegistros(index) {
+    localStorage.setItem('selectedVehicleIndex', index);
+    window.location.href = 'registros.html';
+}
+
+function showForm() {
+    let vehicleInfo = document.getElementById('vehicle-info');
+    if (vehicleInfo.style.display === 'none') {
+        vehicleInfo.style.display = 'block';
+        vehicleInfo.classList.add('fade-in');
+        let index = localStorage.getItem('selectedVehicleIndex');
+        let vehicles = JSON.parse(localStorage.getItem('vehicles')) || [];
+        let vehicle = vehicles[index];
+        vehicleInfo.innerHTML = `
+            <h3>${vehicle.marca} ${vehicle.modelo} (${vehicle.anio})</h3>
+            <p><strong>Tipo:</strong> ${vehicle.tipo}</p>
+            <p><strong>Chasis/VIN:</strong> ${vehicle.chasis || 'N/A'}</p>
+            <p><strong>Motor:</strong> ${vehicle.motor || 'N/A'}</p>
+            <p><strong>Patente:</strong> ${vehicle.patente}</p>
+            <p><strong>Color:</strong> ${vehicle.color}</p>
+            <p><strong>Kilometraje:</strong> ${vehicle.kilometraje} km</p>
+            <p><strong>Combustible:</strong> ${vehicle.combustible}</p>
+            <p><strong>Transmisión:</strong> ${vehicle.transmision}</p>
+        `;
+    } else {
+        vehicleInfo.classList.add('fade-out');
+        setTimeout(() => {
+            vehicleInfo.style.display = 'none';
+            vehicleInfo.classList.remove('fade-in', 'fade-out');
+        }, 500);
+    }
+}
+
+function saveRegistro() {
+    let index = localStorage.getItem('selectedVehicleIndex');
+    let vehicles = JSON.parse(localStorage.getItem('vehicles')) || [];
+    let vehicle = vehicles[index];
+    let registro = {
+        fecha: document.getElementById('fecha').value,
+        descripcion: document.getElementById('descripcion').value,
+        costo: document.getElementById('costo').value,
+        vehicle: vehicle
+    };
+    let registros = JSON.parse(localStorage.getItem('registros')) || [];
+    registros.push(registro);
+    localStorage.setItem('registros', JSON.stringify(registros));
+    loadRegistros();
+}
+
+function loadRegistros() {
+    let registros = JSON.parse(localStorage.getItem('registros')) || [];
+    let registrosContainer = document.getElementById('registros-guardados');
+    if (registrosContainer) {
+        registrosContainer.innerHTML = '';
+        registros.forEach(registro => {
+            let registroElement = document.createElement('div');
+            registroElement.className = 'registro';
+            registroElement.innerHTML = `
+                <h3>${registro.vehicle.marca} ${registro.vehicle.modelo} (${registro.vehicle.anio})</h3>
+                <p><strong>Fecha:</strong> ${registro.fecha}</p>
+                <p><strong>Descripción:</strong> ${registro.descripcion}</p>
+                <p><strong>Costo:</strong> ${registro.costo}</p>
+            `;
+            registrosContainer.appendChild(registroElement);
+        });
     }
 }
 
