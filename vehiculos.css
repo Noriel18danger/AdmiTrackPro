@@ -1,5 +1,5 @@
 .container {
-    margin-top: 50vh; /* Espacio adicional para que el contenido se vea desde más arriba */
+    margin-top: 100vh; /* Espacio adicional para que el contenido se vea desde más arriba */
     display: flex;
     flex-direction: column;
     align-items: center;

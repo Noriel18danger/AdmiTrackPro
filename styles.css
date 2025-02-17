@@ -45,7 +45,6 @@ body {
     flex-direction: column;
     align-items: center; /* Centrar todo horizontalmente */
     animation: fadeIn 1s ease-in-out;
-    margin-top: 45vh; /* Espacio adicional para que el formulario se vea desde más arriba */
 }
 
 .intro {
