@@ -201,60 +201,75 @@ function toggleDetalles(index) {
 }
 
 function loadInventory() {
-    const categories = ['repuestos', 'herramientas', 'seguridad', 'insumos', 'maquinas'];
-    categories.forEach(category => {
-        const items = JSON.parse(localStorage.getItem(category)) || [];
-        const container = document.getElementById(`${category}-container`);
-        container.innerHTML = '';
-        items.forEach((item, index) => {
-            const itemElement = document.createElement('div');
-            itemElement.className = 'inventory-item';
-            itemElement.innerHTML = `
-                <h3>${item.nombre}</h3>
-                <p><strong>Cantidad:</strong> ${item.cantidad}</p>
-                <p><strong>Costo:</strong> $${item.costo}</p>
-                <div class="inventory-buttons">
-                    <button class="btn" onclick="editItem('${category}', ${index})">Editar</button>
-                    <button class="btn" onclick="deleteItem('${category}', ${index})">Eliminar</button>
-                </div>
-            `;
-            container.appendChild(itemElement);
-        });
+    const stockTableBody = document.querySelector('#stock-table tbody');
+    const inventory = JSON.parse(localStorage.getItem('inventory')) || [];
+    stockTableBody.innerHTML = '';
+    inventory.forEach((item, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td><input type="number" value="${item.cantidad}" onchange="updateItem(${index}, 'cantidad', this.value)"></td>
+            <td>${item.sku}</td>
+            <td><input type="text" value="${item.nombre}" onchange="updateItem(${index}, 'nombre', this.value)"></td>
+            <td>${item.categoria}</td>
+            <td><input type="text" value="${item.codigo}" onchange="updateItem(${index}, 'codigo', this.value)"></td>
+            <td><input type="text" value="${item.almacenaje}" onchange="updateItem(${index}, 'almacenaje', this.value)"></td>
+            <td><input type="number" value="${item.precio}" onchange="updateItem(${index}, 'precio', this.value)"></td>
+            <td>${item.cantidad * item.precio}</td>
+            <td class="actions">
+                <button onclick="deleteItem(${index})">Eliminar</button>
+            </td>
+        `;
+        stockTableBody.appendChild(row);
     });
 }
 
-function addItem(category) {
-    const nombre = prompt('Ingrese el nombre del ítem:');
-    const cantidad = parseInt(prompt('Ingrese la cantidad del ítem:'), 10);
-    const costo = parseFloat(prompt('Ingrese el costo del ítem:'));
-    if (nombre && !isNaN(cantidad) && !isNaN(costo)) {
-        const items = JSON.parse(localStorage.getItem(category)) || [];
-        items.push({ nombre, cantidad, costo });
-        localStorage.setItem(category, JSON.stringify(items));
+function addProduct() {
+    const nombre = document.getElementById('product-name').value;
+    const codigo = document.getElementById('product-code').value;
+    const categoria = document.getElementById('product-category').value;
+    const cantidad = parseInt(document.getElementById('product-quantity').value, 10);
+    const almacenaje = document.getElementById('product-storage').value;
+    const precio = parseFloat(document.getElementById('product-price').value);
+
+    if (nombre && !isNaN(cantidad) && !isNaN(precio)) {
+        const inventory = JSON.parse(localStorage.getItem('inventory')) || [];
+        const sku = generateSKU();
+        inventory.push({ nombre, codigo, categoria, cantidad, almacenaje, precio, sku });
+        localStorage.setItem('inventory', JSON.stringify(inventory));
         loadInventory();
+        document.getElementById('add-product-form').reset();
     } else {
         alert('Datos inválidos. Por favor, intente de nuevo.');
     }
 }
 
-function editItem(category, index) {
-    const items = JSON.parse(localStorage.getItem(category)) || [];
-    const item = items[index];
-    const nombre = prompt('Ingrese el nuevo nombre del ítem:', item.nombre);
-    const cantidad = parseInt(prompt('Ingrese la nueva cantidad del ítem:', item.cantidad), 10);
-    const costo = parseFloat(prompt('Ingrese el nuevo costo del ítem:', item.costo));
-    if (nombre && !isNaN(cantidad) && !isNaN(costo)) {
-        items[index] = { nombre, cantidad, costo };
-        localStorage.setItem(category, JSON.stringify(items));
-        loadInventory();
-    } else {
-        alert('Datos inválidos. Por favor, intente de nuevo.');
-    }
+function generateSKU() {
+    return Math.floor(100000 + Math.random() * 900000).toString();
 }
 
-function deleteItem(category, index) {
-    const items = JSON.parse(localStorage.getItem(category)) || [];
-    items.splice(index, 1);
-    localStorage.setItem(category, JSON.stringify(items));
+function updateItem(index, field, value) {
+    const inventory = JSON.parse(localStorage.getItem('inventory')) || [];
+    inventory[index][field] = field === 'cantidad' || field === 'precio' ? parseFloat(value) : value;
+    localStorage.setItem('inventory', JSON.stringify(inventory));
+    loadInventory();
+}
+
+function deleteItem(index) {
+    const inventory = JSON.parse(localStorage.getItem('inventory')) || [];
+    inventory.splice(index, 1);
+    localStorage.setItem('inventory', JSON.stringify(inventory));
+    loadInventory();
+}
+
+function sortTable(columnIndex) {
+    const inventory = JSON.parse(localStorage.getItem('inventory')) || [];
+    inventory.sort((a, b) => {
+        const fields = ['cantidad', 'sku', 'nombre', 'categoria', 'codigo', 'almacenaje', 'precio'];
+        const field = fields[columnIndex];
+        if (a[field] < b[field]) return -1;
+        if (a[field] > b[field]) return 1;
+        return 0;
+    });
+    localStorage.setItem('inventory', JSON.stringify(inventory));
     loadInventory();
 }

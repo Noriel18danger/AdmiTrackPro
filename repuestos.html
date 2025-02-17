@@ -22,7 +22,66 @@
             <h1>Repuestos</h1>
             <p>Gestión de repuestos en AdmiTrackPro.</p>
         </div>
-        <!-- Contenido de la página -->
+        <div class="add-product">
+            <h2>Agregar Producto</h2>
+            <form id="add-product-form">
+                <div class="form-group">
+                    <label for="product-name">Nombre del producto</label>
+                    <input type="text" id="product-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-code">Código de fábrica (Opcional)</label>
+                    <input type="text" id="product-code">
+                </div>
+                <div class="form-group">
+                    <label for="product-category">Categoría</label>
+                    <select id="product-category" required>
+                        <option value="Repuestos">Repuestos</option>
+                        <option value="Herramientas">Herramientas</option>
+                        <option value="EPP">EPP</option>
+                        <option value="Insumos">Insumos</option>
+                        <option value="Máquinas">Máquinas</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="product-quantity">Cantidad</label>
+                    <input type="number" id="product-quantity" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-storage">Almacenaje</label>
+                    <input type="text" id="product-storage" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-price">Precio Unitario</label>
+                    <input type="number" id="product-price" required>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" onclick="addProduct()">Agregar</button>
+                    <button type="reset">Limpiar</button>
+                </div>
+            </form>
+        </div>
+        <div class="stock-table">
+            <h2>Tabla de Stock</h2>
+            <table id="stock-table">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">Cantidad</th>
+                        <th onclick="sortTable(1)">SKU</th>
+                        <th onclick="sortTable(2)">Nombre</th>
+                        <th onclick="sortTable(3)">Categoría</th>
+                        <th onclick="sortTable(4)">Código Fabrica</th>
+                        <th onclick="sortTable(5)">Almacenaje</th>
+                        <th onclick="sortTable(6)">Precio Unitario</th>
+                        <th onclick="sortTable(7)">Precio Total</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Filas de productos se agregarán aquí -->
+                </tbody>
+            </table>
+        </div>
         <div class="footer">
             <p>&copy; 2023 AdmiTrackPro. Todos los derechos reservados.</p>
         </div>

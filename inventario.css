@@ -1,10 +1,9 @@
 .container {
-    margin-top: 10vh; /* Espacio adicional para que el contenido se vea desde más arriba */
+    margin-top: 0vh; /* Espacio adicional para que el contenido se vea desde más arriba */
     max-width: 1000px; /* Ajuste para un diseño más amplio */
     margin: 0 auto; /* Centrar el contenedor */
     padding: 20px;
     text-align: center;
-    margin-top: -20vh;
 }
 
 .intro {
@@ -22,10 +21,10 @@
 }
 
 .buttons {
-    display:  flex;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 5px; /* Espacio entre los botones */
+    gap: 10px; /* Espacio entre los botones */
     margin-bottom: 20px; /* Añadir espacio debajo de los botones */
 }
 
@@ -42,7 +41,7 @@
     text-align: center; /* Centrar el texto */
     box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1);
     text-transform: uppercase; /* Todo en mayúsculas */
-    margin-right: 30px; /* Espacio entre los botones */
+    margin-right: 1px; /* Espacio entre los botones */
     max-width: 300px;
 }
 
