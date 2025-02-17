@@ -1,0 +1,215 @@
+.container {
+    max-width: 1000px; /* Ajuste para un diseño más amplio */
+    margin: 0 auto; /* Centrar el contenedor */
+    padding: 20px;
+    text-align: center;
+    margin-top: 130vh; /* Ajuste del margen superior */
+}
+
+.intro {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.intro p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out;
+    text-align: center;
+}
+
+.stock-table {
+    background-color: #ffffff;
+    padding: 20px; /* Añadir espacio interno */
+    border-radius: 10px;   /* Añadir bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    overflow-x: auto; /* Permitir desplazamiento horizontal */
+    font-size: 15px;
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 30px; /* Añadir espacio entre las tablas */
+}
+
+.stock-table h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 30px;
+    color: #ff0000;
+    margin-bottom: 10px; /* Añadir espacio debajo del título */
+    text-align: center;
+}
+
+.table-responsive {
+    overflow-x: auto; /* Permitir desplazamiento horizontal */
+}
+
+table {
+    width: 100%; /* Ancho de la tabla ajustado al contenedor */
+    border-collapse: collapse; /* Colapsar los bordes de la tabla */
+    margin-bottom: 20px; /* Añadir espacio debajo de la tabla */
+    margin: 0 auto; /* Centrar la tabla */
+}
+
+table th,
+table td {
+    padding: 10px; /* Añadir espacio interno */
+    border: 1px solid #ccc;
+    text-align: center;
+    padding-right: 8px;
+    padding-left: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+table th {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+table th:hover {
+    background-color: #e0e0e0;
+}
+
+table td input {
+    width: 100%;    /* Ancho del input */
+    border: none;  /* Quitar el borde */
+    background-color: transparent; /* Fondo transparente */
+    text-align: center; /* Centrar el texto */
+}
+
+table td input:focus {
+    outline: none;
+    border-bottom: 1px solid #ff0000;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.actions button {
+    padding: 5px 10px;
+    background-color: #f30000;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.actions button:hover {
+    background-color: #32d600;
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+    max-width: 100px;
+    max-height: 100px;
+    margin-top: 10px;
+}
+
+.delete-image {
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    margin-top: 10px;
+}
+
+.delete-image:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.download-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-download {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-download:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.download-options {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-excel {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-excel:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-pdf {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-pdf:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Añadir movimiento vertical */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

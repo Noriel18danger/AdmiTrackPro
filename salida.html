@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salida - AdmiTrackPro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Faster+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="salida.css">
+</head>
+<body>
+    <header class="site-header">
+        <a href="index.html" class="logo-link">
+            <h1 class="logo" style="font-family: 'Faster One', sans-serif;">AdmiTrackPro</h1>
+        </a>
+    </header>
+    <div class="container">
+        <div class="intro">
+            <h1>Salida</h1>
+            <p>Gestión de salida en AdmiTrackPro.</p>
+        </div>
+        <div class="control-salida">
+            <h2>Control de Salida</h2>
+            <form id="control-salida-form">
+                <div class="form-group">
+                    <label for="salida-category">Categoría</label>
+                    <select id="salida-category" required>
+                        <!-- Opciones de categorías se llenarán dinámicamente -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="salida-product">Producto</label>
+                    <select id="salida-product" required onchange="updateStockInfo()">
+                        <!-- Opciones de productos se llenarán dinámicamente -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="salida-quantity">Cantidad <span id="stock-info"></span></label>
+                    <input type="number" id="salida-quantity" required>
+                </div>
+                <div class="form-group">
+                    <label for="salida-solicitante">Solicitante</label>
+                    <input type="text" id="salida-solicitante" required>
+                </div>
+                <div class="form-group">
+                    <label for="salida-entrega">Entrega</label>
+                    <input type="text" id="salida-entrega" required>
+                </div>
+                <div class="form-group">
+                    <label for="salida-lugar">Lugar de entrega</label>
+                    <input type="text" id="salida-lugar" required>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" onclick="registrarSalida()">Entregar</button>
+                    <button type="reset">Limpiar</button>
+                </div>
+            </form>
+        </div>
+        <div class="salida-table">
+            <h2>Tabla de Salida</h2>
+            <div class="table-responsive">
+                <table id="salida-table">
+                    <thead>
+                        <tr>
+                            <th>Cantidad</th>
+                            <th>SKU</th>
+                            <th>Categoría</th>
+                            <th>Producto</th>
+                            <th>Solicitante</th>
+                            <th>Entrega</th>
+                            <th>Fecha</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Filas de productos se agregarán aquí -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="footer">
+            <p>&copy; 2023 AdmiTrackPro. Todos los derechos reservados.</p>
+        </div>
+    </div>
+    <script src="salida.js"></script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock - AdmiTrackPro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Faster+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="stock.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <a href="index.html" class="logo-link">
+            <h1 class="logo" style="font-family: 'Faster One', sans-serif;">AdmiTrackPro</h1>
+        </a>
+    </header>
+    <div class="container">
+        <div class="intro">
+            <h1>Stock</h1>
+            <p>Gestión de stock en AdmiTrackPro.</p>
+        </div>
+        <div class="stock-table">
+            <h2>Stock de Repuestos</h2>
+            <div class="table-responsive">
+                <table id="stock-repuestos-table">
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable(0, 'stock-repuestos-table')">Cantidad</th>
+                            <th onclick="sortTable(1, 'stock-repuestos-table')">SKU</th>
+                            <th onclick="sortTable(2, 'stock-repuestos-table')">Nombre</th>
+                            <th onclick="sortTable(3, 'stock-repuestos-table')">Categoría</th>
+                            <th onclick="sortTable(4, 'stock-repuestos-table')">Código Fabrica</th>
+                            <th onclick="sortTable(5, 'stock-repuestos-table')">Almacenaje</th>
+                            <th onclick="sortTable(6, 'stock-repuestos-table')">Precio Unitario (CLP)</th>
+                            <th onclick="sortTable(7, 'stock-repuestos-table')">Precio Total (CLP)</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Filas de productos se agregarán aquí -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="download-buttons">
+                <button class="btn-download" onclick="toggleDownloadOptions('repuestos')">Descargar</button>
+                <div id="download-options-repuestos" class="download-options" style="display: none;">
+                    <button class="btn-excel" onclick="downloadExcel('repuestos')">EXCEL</button>
+                    <button class="btn-pdf" onclick="downloadPDF('repuestos')">PDF</button>
+                </div>
+            </div>
+        </div>
+        <div class="stock-table">
+            <h2>Stock de EPP</h2>
+            <div class="table-responsive">
+                <table id="stock-epp-table">
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable(0, 'stock-epp-table')">Cantidad</th>
+                            <th onclick="sortTable(1, 'stock-epp-table')">SKU</th>
+                            <th onclick="sortTable(2, 'stock-epp-table')">Nombre</th>
+                            <th onclick="sortTable(3, 'stock-epp-table')">Categoría</th>
+                            <th onclick="sortTable(4, 'stock-epp-table')">Código Fabrica</th>
+                            <th onclick="sortTable(5, 'stock-epp-table')">Almacenaje</th>
+                            <th onclick="sortTable(6, 'stock-epp-table')">Precio Unitario (CLP)</th>
+                            <th onclick="sortTable(7, 'stock-epp-table')">Precio Total (CLP)</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Filas de productos se agregarán aquí -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="download-buttons">
+                <button class="btn-download" onclick="toggleDownloadOptions('epp')">Descargar</button>
+                <div id="download-options-epp" class="download-options" style="display: none;">
+                    <button class="btn-excel" onclick="downloadExcel('epp')">EXCEL</button>
+                    <button class="btn-pdf" onclick="downloadPDF('epp')">PDF</button>
+                </div>
+            </div>
+        </div>
+        <div class="stock-table">
+            <h2>Stock de Insumos</h2>
+            <div class="table-responsive">
+                <table id="stock-insumos-table">
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable(0, 'stock-insumos-table')">Cantidad</th>
+                            <th onclick="sortTable(1, 'stock-insumos-table')">SKU</th>
+                            <th onclick="sortTable(2, 'stock-insumos-table')">Nombre</th>
+                            <th onclick="sortTable(3, 'stock-insumos-table')">Categoría</th>
+                            <th onclick="sortTable(4, 'stock-insumos-table')">Código Fabrica</th>
+                            <th onclick="sortTable(5, 'stock-insumos-table')">Almacenaje</th>
+                            <th onclick="sortTable(6, 'stock-insumos-table')">Precio Unitario (CLP)</th>
+                            <th onclick="sortTable(7, 'stock-insumos-table')">Precio Total (CLP)</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Filas de productos se agregarán aquí -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="download-buttons">
+                <button class="btn-download" onclick="toggleDownloadOptions('insumos')">Descargar</button>
+                <div id="download-options-insumos" class="download-options" style="display: none;">
+                    <button class="btn-excel" onclick="downloadExcel('insumos')">EXCEL</button>
+                    <button class="btn-pdf" onclick="downloadPDF('insumos')">PDF</button>
+                </div>
+            </div>
+        </div>
+        <div class="stock-table">
+            <h2>Stock de Herramientas</h2>
+            <div class="table-responsive">
+                <table id="stock-herramientas-table">
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable(0, 'stock-herramientas-table')">Cantidad</th>
+                            <th onclick="sortTable(1, 'stock-herramientas-table')">SKU</th>
+                            <th onclick="sortTable(2, 'stock-herramientas-table')">Nombre</th>
+                            <th onclick="sortTable(3, 'stock-herramientas-table')">Categoría</th>
+                            <th onclick="sortTable(4, 'stock-herramientas-table')">Código Fabrica</th>
+                            <th onclick="sortTable(5, 'stock-herramientas-table')">Almacenaje</th>
+                            <th onclick="sortTable(6, 'stock-herramientas-table')">Precio Unitario (CLP)</th>
+                            <th onclick="sortTable(7, 'stock-herramientas-table')">Precio Total (CLP)</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Filas de productos se agregarán aquí -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="download-buttons">
+                <button class="btn-download" onclick="toggleDownloadOptions('herramientas')">Descargar</button>
+                <div id="download-options-herramientas" class="download-options" style="display: none;">
+                    <button class="btn-excel" onclick="downloadExcel('herramientas')">EXCEL</button>
+                    <button class="btn-pdf" onclick="downloadPDF('herramientas')">PDF</button>
+                </div>
+            </div>
+        </div>
+        <div class="stock-table">
+            <h2>Stock de Máquinas</h2>
+            <div class="table-responsive">
+                <table id="stock-maquinas-table">
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable(0, 'stock-maquinas-table')">Cantidad</th>
+                            <th onclick="sortTable(1, 'stock-maquinas-table')">SKU</th>
+                            <th onclick="sortTable(2, 'stock-maquinas-table')">Nombre</th>
+                            <th onclick="sortTable(3, 'stock-maquinas-table')">Categoría</th>
+                            <th onclick="sortTable(4, 'stock-maquinas-table')">Código Fabrica</th>
+                            <th onclick="sortTable(5, 'stock-maquinas-table')">Almacenaje</th>
+                            <th onclick="sortTable(6, 'stock-maquinas-table')">Precio Unitario (CLP)</th>
+                            <th onclick="sortTable(7, 'stock-maquinas-table')">Precio Total (CLP)</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Filas de productos se agregarán aquí -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="download-buttons">
+                <button class="btn-download" onclick="toggleDownloadOptions('maquinas')">Descargar</button>
+                <div id="download-options-maquinas" class="download-options" style="display: none;">
+                    <button class="btn-excel" onclick="downloadExcel('maquinas')">EXCEL</button>
+                    <button class="btn-pdf" onclick="downloadPDF('maquinas')">PDF</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>&copy; 2023 AdmiTrackPro. Todos los derechos reservados.</p>
+        </div>
+    </div>
+    <script src="stock.js"></script>
+</body>
+</html>
