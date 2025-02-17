@@ -1,5 +1,5 @@
 .container {
-    margin-top: 90vh; /* Espacio adicional para que el contenido se vea desde más arriba */
+    margin-top: 40vh; /* Espacio adicional para que el contenido se vea desde más arriba */
     max-width: 375px; /* Ajuste para un diseño móvil */
 }
 
@@ -8,7 +8,7 @@
 }
 
 .intro p {
-    font-size: 18px;
+    font-size: 25px;
     line-height: 1.5;
     margin-bottom: 20px;
     animation: fadeIn 2s ease-in-out;

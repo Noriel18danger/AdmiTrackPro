@@ -1,5 +1,5 @@
 .container {
-    margin-top: 130vh; /* Espacio adicional para que el contenido se vea desde más arriba */
+    margin-top: 50vh; /* Espacio adicional para que el contenido se vea desde más arriba */
     max-width: 375px; /* Ajuste para un diseño móvil */
 }
 
