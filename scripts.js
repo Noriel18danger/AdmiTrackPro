@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.location.pathname.includes('mis_vehiculos.html')) {
         loadVehicles();
     }
+    if (window.location.pathname.includes('inventario.html')) {
+        loadInventory();
+    }
 });
 
 function initializeMobilePlatform() {
@@ -195,4 +198,63 @@ function toggleDetalles(index) {
     } else {
         detalles.style.display = 'none';
     }
+}
+
+function loadInventory() {
+    const categories = ['repuestos', 'herramientas', 'seguridad', 'insumos', 'maquinas'];
+    categories.forEach(category => {
+        const items = JSON.parse(localStorage.getItem(category)) || [];
+        const container = document.getElementById(`${category}-container`);
+        container.innerHTML = '';
+        items.forEach((item, index) => {
+            const itemElement = document.createElement('div');
+            itemElement.className = 'inventory-item';
+            itemElement.innerHTML = `
+                <h3>${item.nombre}</h3>
+                <p><strong>Cantidad:</strong> ${item.cantidad}</p>
+                <p><strong>Costo:</strong> $${item.costo}</p>
+                <div class="inventory-buttons">
+                    <button class="btn" onclick="editItem('${category}', ${index})">Editar</button>
+                    <button class="btn" onclick="deleteItem('${category}', ${index})">Eliminar</button>
+                </div>
+            `;
+            container.appendChild(itemElement);
+        });
+    });
+}
+
+function addItem(category) {
+    const nombre = prompt('Ingrese el nombre del ítem:');
+    const cantidad = parseInt(prompt('Ingrese la cantidad del ítem:'), 10);
+    const costo = parseFloat(prompt('Ingrese el costo del ítem:'));
+    if (nombre && !isNaN(cantidad) && !isNaN(costo)) {
+        const items = JSON.parse(localStorage.getItem(category)) || [];
+        items.push({ nombre, cantidad, costo });
+        localStorage.setItem(category, JSON.stringify(items));
+        loadInventory();
+    } else {
+        alert('Datos inválidos. Por favor, intente de nuevo.');
+    }
+}
+
+function editItem(category, index) {
+    const items = JSON.parse(localStorage.getItem(category)) || [];
+    const item = items[index];
+    const nombre = prompt('Ingrese el nuevo nombre del ítem:', item.nombre);
+    const cantidad = parseInt(prompt('Ingrese la nueva cantidad del ítem:', item.cantidad), 10);
+    const costo = parseFloat(prompt('Ingrese el nuevo costo del ítem:', item.costo));
+    if (nombre && !isNaN(cantidad) && !isNaN(costo)) {
+        items[index] = { nombre, cantidad, costo };
+        localStorage.setItem(category, JSON.stringify(items));
+        loadInventory();
+    } else {
+        alert('Datos inválidos. Por favor, intente de nuevo.');
+    }
+}
+
+function deleteItem(category, index) {
+    const items = JSON.parse(localStorage.getItem(category)) || [];
+    items.splice(index, 1);
+    localStorage.setItem(category, JSON.stringify(items));
+    loadInventory();
 }

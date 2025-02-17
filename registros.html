@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="registros.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </head>
 <body>
     <header class="site-header">
@@ -28,7 +29,28 @@
             </div>
             <div class="section">
                 <h2>Registros Guardados</h2>
-                <div id="registros-guardados"></div>
+                <div id="registros-guardados">
+                    <!-- Ejemplo de registro guardado -->
+                    <div class="registro" id="registro1">
+                        <h3>Vehículo 1</h3>
+                        <p>Marca: Toyota</p>
+                        <p>Modelo: Corolla</p>
+                        <p>Año: 2020</p>
+                        <p>Patente: ABC123</p>
+                        <div class="registro-buttons">
+                            <button class="btn-detalles" data-registro-id="registro1">Detalles</button>
+                            <button class="btn-descargar" data-registro-id="registro1" style="display: none;">Descargar PDF</button>
+                        </div>
+                        <div class="registro-detalles" id="detalles-registro1" style="display: none;">
+                            <!-- Detalles adicionales del registro -->
+                            <p>Color: Blanco</p>
+                            <p>Kilometraje: 15000 km</p>
+                            <p>Combustible: Gasolina</p>
+                            <!-- Más detalles aquí -->
+                        </div>
+                    </div>
+                    <!-- Más registros guardados aquí -->
+                </div>
             </div>
         </div>
         <div class="footer">
@@ -36,5 +58,53 @@
         </div>
     </div>
     <script src="scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Función para mostrar/ocultar detalles y botón de descarga
+            function toggleDetalles(registroId) {
+                const detalles = document.getElementById(`detalles-${registroId}`);
+                const btnDescargar = document.querySelector(`.btn-descargar[data-registro-id="${registroId}"]`);
+                if (detalles.style.display === 'none') {
+                    detalles.style.display = 'block';
+                    btnDescargar.style.display = 'inline-block';
+                } else {
+                    detalles.style.display = 'none';
+                    btnDescargar.style.display = 'none';
+                }
+            }
+
+            // Función para descargar el registro en PDF
+            function descargarPDF(registroId) {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+
+                // Obtener la información del registro
+                const registro = document.getElementById(registroId);
+                const contenido = registro.innerText;
+
+                // Agregar el contenido al PDF
+                doc.text(contenido, 10, 10);
+
+                // Descargar el PDF
+                doc.save('registro_vehiculo.pdf');
+            }
+
+            // Agregar evento a los botones de detalles
+            document.querySelectorAll('.btn-detalles').forEach(button => {
+                button.addEventListener('click', function() {
+                    const registroId = this.getAttribute('data-registro-id');
+                    toggleDetalles(registroId);
+                });
+            });
+
+            // Agregar evento a los botones de descarga
+            document.querySelectorAll('.btn-descargar').forEach(button => {
+                button.addEventListener('click', function() {
+                    const registroId = this.getAttribute('data-registro-id');
+                    descargarPDF(registroId);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
