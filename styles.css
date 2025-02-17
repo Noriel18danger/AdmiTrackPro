@@ -1,5 +1,5 @@
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
@@ -40,7 +40,7 @@ body {
 .container {
     padding: 20px;
     width: 100%;
-    max-width: 1000px; /* Ajuste para un diseño más amplio */
+    max-width: 375px; /* Ajuste para un diseño móvil */
     display: flex;
     flex-direction: column;
     align-items: center; /* Centrar todo horizontalmente */

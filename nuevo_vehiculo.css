@@ -1,8 +1,10 @@
 .container {
-    margin-top: 45vh; /* Espacio adicional para que el contenido se vea desde más arriba */
+    margin-top: 80vh; /* Espacio adicional para que el contenido se vea desde más arriba */
+    max-width: 375px; /* Ajuste para un diseño móvil */
 }
 
 .intro {
+    font-family: 'Arial', sans-serif;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -19,7 +21,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    animation: fadeIn 0,5s ease-in-out;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 .form-group {

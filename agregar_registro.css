@@ -1,10 +1,11 @@
 .agregar-registro .container {
-    margin-top: 405vh; /* Espacio adicional para que el formulario se vea desde más arriba */
+    margin-top: 450vh; /* Espacio adicional para que el formulario se vea desde más arriba */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     animation: fadeInContainer 1s ease-in-out;
+    max-width: 375px; /* Ajuste para un diseño móvil */
 }
 
 .agregar-registro .form-container {
@@ -78,7 +79,7 @@
 }
 
 .agregar-registro .intro {
-    font-family: 'Faster One', sans-serif;
+    font-family: 'Arial', sans-serif;
 }
 
 .agregar-registro .intro h1 {

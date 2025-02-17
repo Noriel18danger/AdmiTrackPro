@@ -1,8 +1,10 @@
 .container {
-    margin-top: 10vh; /* Espacio adicional para que el contenido se vea desde más arriba */
+    margin-top: 50vh; /* Espacio adicional para que el contenido se vea desde más arriba */
+    max-width: 375px; /* Ajuste para un diseño móvil */
 }
 
 .intro {
+    font-family: 'Arial', sans-serif;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -11,7 +13,7 @@
     font-size: 20px;
     line-height: 1.5;
     margin-bottom: 20px;
-    animation: fadeIn 0,05s ease-in-out;
+    animation: fadeIn 0.05s ease-in-out;
 }
 
 .vehicles-grid {
@@ -50,7 +52,7 @@
 .qr-code {
     margin-top: 10px;
     text-align: center;
-    animation: fadeIn 3s ease-in-out
+    animation: fadeIn 1s ease-in-out;
 }
 
 @keyframes fadeIn {
