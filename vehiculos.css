@@ -1,55 +1,125 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-y: auto; /* Permitir desplazamiento vertical */
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    background-size: cover;
+    background-position: 50% 50%;
+    z-index: -1;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Asegura que el contenido ocupe al menos toda la altura de la pantalla */
+}
+
+.site-header {
+    background-color: #000000;
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 1px solid #000000;
+    width: 100%;
+}
+
+.site-header .logo-link {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.site-header .logo {
+    margin: 0;
+    font-size: 2.25em;
+}
+
 .container {
-    margin-top: 24vh; /* Espacio adicional para que el contenido se vea desde más arriba */
+    margin-top: 40vh; /* Espacio adicional para que el contenido se vea desde más arriba */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     animation: fadeInContainer 1s ease-in-out;
-    max-width: 375px; /* Ajuste para un diseño móvil */
+    max-width: 900px; /* Ajuste para un diseño móvil */
+    margin: 0 auto;
+    padding: 0px;
+    text-align: center;
 }
 
 .intro {
     font-family: 'Arial', sans-serif;
-    text-align: center;
-    margin-bottom: 20px;
+    font-size: 15px;
+    text-align: center; /* Alinear el texto al centro */
+    margin-bottom: 200px; /* Añadir espacio debajo del texto */
+    color: #ffffff;
+    padding-left: 0px; 
+    max-width: 400px; /* Ajustar el ancho del texto de intro */
 }
 
 .intro h1 {
-    font-size: 28px;
-    margin-bottom: 20px;
+    font-size: 60px; /* Tamaño de fuente del título */
+    font-family: 'Faster One';
+    top: 0;
+    left: 0;
+    right: 0;
+    color: #ffffff;
+    margin-bottom: 30px; /* Añadir espacio debajo del título */
+    font-size: 50px;
+    margin-top: 70vh;
 }
 
 .intro p {
-    font-size: 18px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    animation: fadeIn 2s ease-in-out;
+    font-size: 15px; /* Tamaño de fuente del párrafo */
+    font-family: 'arial', sans-serif; /* Fuente Arial */
+    line-height: 1.5; /* Ajuste para el espaciado entre líneas */
+    margin-bottom: 20px; /* Añadir espacio debajo del párrafo */
+    animation: fadeIn 0.5s ease-in-out;   /* Añadir animación de entrada */
+    text-align: center;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .intro ul {
-    text-align: left;
-    margin-top: 10px;
-    padding-left: 20px;
-    animation: fadeIn 2s ease-in-out;
+    text-align: center; /* Alinear la lista a la izquierda */
+    margin-top: 10px;   /* Añadir espacio encima de la lista */
+    padding-left: 0px; /* Añadir sangría a la lista */
+    animation: fadeIn 3s ease-in-out; /* Añadir animación de entrada */
+    font-size: 15px;
 }
 
 .intro ul li {
-    margin-bottom: 10px;
-    font-size: 16px;
-    line-height: 1.4;
+    margin-bottom: 10px; /* Espacio entre elementos de la lista */
+    font-size: 16px; /* Tamaño de fuente de la lista */
+    line-height: 1.4; /* Ajuste para el espaciado entre líneas */
+    padding-left: 0px;
 }
 
 .buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px; /* Espacio entre los botones */
+    gap: 20px; /* Espacio entre los botones */
     margin-bottom: 20px; /* Añadir espacio debajo de los botones */
+    margin-bottom: 50vh;
+    margin-top: 20px; /* Añadir espacio encima de los botones */
 }
 
 .btn {
     display: inline-block;
-    padding: 20px 10px;
+    padding: 20px 20px;
     background-color: #ff0000;
     color: #ffffff;
     text-decoration: none;
@@ -57,13 +127,14 @@
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
     animation: bounceIn 1s ease-in-out;
     flex: 1 1 calc(50% - 20px); /* Ajuste para que los botones ocupen la mitad del ancho con espacio */
-    max-width: 150px; /* Ajuste para que los botones tengan un ancho máximo */
+    max-width: 100px; /* Ajuste para que los botones tengan un ancho máximo */
     font-size: 14px;
     font-weight: 700;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para los botones */
     font-family: 'Lexend Deca', sans-serif; /* Aplicar la fuente Lexend Deca */
     text-transform: uppercase; /* Todo en mayúsculas */
+    margin-top: 14vh;
 }
 
 .btn:hover {

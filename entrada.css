@@ -10,27 +10,27 @@
 }
 
 .intro {
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif; /* Fuente */
+    text-align: center; /* Alinear al centro */
+    margin-bottom: 20px; /* Añadir espacio debajo del texto */
 }
 
 .intro p {
-    font-size: 20px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    animation: fadeIn 1s ease-in-out;
-    text-align: center;
+    font-size: 20px; /* Tamaño de la fuente */
+    line-height: 1.5; /* Altura de línea */
+    margin-bottom: 20px; /* Añadir espacio debajo del párrafo */
+    animation: fadeIn 1s ease-in-out; /* Animación de entrada */
+    text-align: center; /* Alinear al centro */
 }
 
 .add-product {
     background-color: #f9f9f9;
     padding: 20px;
-    border-radius: 10px; /* Añadir bordes redondeados */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-    width: 20%;
-    max-width: 600px;
+    border-radius: 20px; /* Añadir bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    margin-bottom: 30px; /* Añadir espacio debajo del formulario */
+    width: 100%; /* Ancho del formulario */
+    max-width: 375px; /* Ancho máximo del formulario */
 }
 
 .add-product h2 {
@@ -46,31 +46,31 @@
     margin-bottom: 15px;
 }
 
-.form-group label {
-    font-size: 14px;
-    font-weight: 700;
-    margin-bottom: 5px;
+.form-group label { /* Estilo de las etiquetas */
+    font-size: 14px; /* Tamaño de la fuente */
+    font-weight: 700; /* Grosor de la fuente */
+    margin-bottom: 5px; /* Añadir espacio debajo de la etiqueta */
 }
 
 .form-group input,
-.form-group select {
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: border-color 0.3s;
-    width: 94%;
+.form-group select { /* Estilo de los inputs y selects */
+    padding: 10px; /* Añadir espacio interno */
+    font-size: 14px; /* Tamaño de la fuente */
+    border: 1px solid #ccc; /* Añadir borde */
+    border-radius: 5px; /* Añadir bordes redondeados */
+    transition: border-color 0.3s; /* Transición al cambiar el color del borde */
+    width: 85%; /* Ancho del input */
 }
 
-.form-group input:focus,
-.form-group select:focus {
-    border-color: #ff0000;
+.form-group input:focus, /* Estilo al hacer focus */
+.form-group select:focus {  /* Estilo al hacer focus */
+    border-color: #ff0000; /* Cambiar el color del borde al hacer focus */
 }
 
 .form-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+    display: flex; /* Mostrar los botones en línea */
+    justify-content: space-between; /* Espacio entre los botones */
+    margin-top: 20px; /* Añadir espacio arriba de los botones */
 }
 
 .form-buttons button { /* Estilo de los botones */
@@ -84,7 +84,7 @@
     text-transform: uppercase; /* Todo en mayúsculas */
     cursor: pointer; /* Cambiar el cursor al pasar por encima */
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Transiciones */
-    margin-right: 7px; /* Espacio entre los botones */
+    margin-right: 0px; /* Espacio entre los botones */
 }
 
 .form-buttons button:hover { /* Estilo al hacer hover */
@@ -99,9 +99,9 @@
     border-radius: 10px;   /* Añadir bordes redondeados */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
     overflow-x: auto; /* Permitir desplazamiento horizontal */
-    font-size: 15px;
-    width: 100%;
-    max-width: 1000px;
+    font-size: 15px; /* Tamaño de la fuente */
+    width: 100%; /* Ancho de la tabla ajustado al contenedor */
+    max-width: 1000px; /* Ancho máximo de la tabla */
 }
 
 .stock-table h2 {

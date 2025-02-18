@@ -50,62 +50,29 @@ body, html {
     font-family: 'Faster One', sans-serif;
     text-align: center;
     margin-bottom: 20px;
-    font-size: 40px;
 }
 .intro h1 {
-    font-family: 'Faster One', sans-serif;
+    font-size: 30px;
     margin-bottom: 10px;
-    font-size: 42px;
-    margin-top: -10vh;
+    font-size: 32px;
+    margin-top: -30vh;
     top: 0;
     left: 0;
     right: 0;
-    animation: fadeIn 2s ease-in-out;
+
 }
-.intro p {
-    font-family: 'arial', sans-serif;
-    font-size: 18px;
+.intro p { /* Añadir animación de entrada */
+    font-size: 15px;
+    font-family: "arial", sans-serif;
     line-height: 1.5;
     margin-bottom: 20px;
-    animation: fadeIn 3s ease-in-out;
+    animation: fadeIn 1s ease-in-out;
     text-align: center;
 }
-.buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px; /* Espacio entre los botones */
-    margin-bottom: 20px; /* Añadir espacio debajo de los botones */
-}
-
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #da0000;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 10px;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    font-size: 14px; /* Tamaño de la fuente */
-    font-weight: 700;   /* Grosor de la fuente */
-    text-align: center; /* Centrar el texto */
-    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1);
-    text-transform: uppercase; /* Todo en mayúsculas */
-    margin-right: 0px; /* Espacio entre los botones */
-    max-width: 300px;
-}
-
-.btn:hover {
-    background-color: #c40000;
-    transform: scale(1.05);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px); /* Añadir movimiento vertical */
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
