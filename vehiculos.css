@@ -2,7 +2,7 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden;
+    overflow-y: scroll; /* Permitir desplazamiento vertical */
 }
 
 #particles-js {
@@ -25,7 +25,7 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh; /* Asegurar que el contenido ocupe al menos la altura de la pantalla */
 }
 
 .site-header {
@@ -67,31 +67,33 @@ body, html {
 }
 
 .container {
-    max-width: 900px;
+    max-width: 400px; /* Ajustar el ancho del contenedor */
     margin: 0 auto;
     padding: 0px;
     text-align: center;
 }
 
 .intro {
-    font-family: 'Faster One', sans-serif;
+    font-family: 'Arial', sans-serif;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    margin-top: 70vh;
 }
 
 .intro h1 {
-    font-size: 30px;
+    font-family: 'Faster One', sans-serif;
     margin-bottom: 10px;
-    font-size: 32px;
+    font-size: 45px;
     margin-top: -30vh;
     top: 0;
     left: 0;
     right: 0;
+    animation: fadeIn 2s ease-in-out;
 }
 
 .intro p {
+    font-family: 'arial', sans-serif;
     font-size: 15px;
-    font-family: "arial", sans-serif;
     line-height: 1.5;
     margin-bottom: 20px;
     animation: fadeIn 1s ease-in-out;
@@ -102,7 +104,7 @@ body, html {
     text-align: center; /* Alinear la lista a la izquierda */
     margin-top: 10px;   /* Añadir espacio encima de la lista */
     padding-left: 0px; /* Añadir sangría a la lista */
-    animation: fadeIn 3s ease-in-out; /* Añadir animación de entrada */
+    animation: fadeIn 1s ease-in-out; /* Añadir animación de entrada */
     font-size: 15px;
 }
 
@@ -117,49 +119,56 @@ body, html {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px; /* Espacio entre los botones */
+    gap: 10px; /* Espacio entre los botones */
     margin-bottom: 20px; /* Añadir espacio debajo de los botones */
-    margin-bottom: 50vh;
+    max-width: 400px; /* Ajustar el ancho de los botones */
     margin-top: 20px; /* Añadir espacio encima de los botones */
 }
 
 .btn {
     display: inline-block;
-    padding: 20px 20px;
+    padding: 10px 20px;
     background-color: #ff0000;
     color: #ffffff;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 10px;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
     animation: bounceIn 1s ease-in-out;
     flex: 1 1 calc(50% - 20px); /* Ajuste para que los botones ocupen la mitad del ancho con espacio */
-    max-width: 100px; /* Ajuste para que los botones tengan un ancho máximo */
+    max-width: 300px; /* Ajuste para que los botones tengan un ancho máximo */
     font-size: 14px;
     font-weight: 700;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para los botones */
+    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1); /* Sombra para los botones */
     font-family: 'Lexend Deca', sans-serif; /* Aplicar la fuente Lexend Deca */
     text-transform: uppercase; /* Todo en mayúsculas */
     margin-top: 14vh;
+    margin-bottom: 70px;
 }
 
 .btn:hover {
     background-color: #cc0000;
-    transform: scale(1.1); /* Aumentar la escala al pasar el mouse */
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el mouse */
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
 .description {
     margin-top: 20px;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #00000054;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: left;
-    animation: fadeIn 1.5s ease-in-out;
+    animation: fadeIn 1s ease-in-out;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 0px;
+    max-width: 400px; /* Ajustar el ancho de la descripción */
 }
 
 .description h2 {
+    font-family: 'arial', sans-serif;
     font-size: 28px;
     color: #ff0000;
     margin-bottom: 10px;
@@ -168,7 +177,7 @@ body, html {
 .description p {
     font-size: 16px;
     line-height: 1.6;
-    color: #333;
+    color: #ffffff;
 }
 
 @keyframes fadeIn {

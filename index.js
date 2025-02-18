@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     particlesJS('particles-js', {
         particles: {
             number: {
-                value: 200, // Aumentar la cantidad de partículas
+                value: 100,
                 density: {
                     enable: true,
                     value_area: 800
@@ -210,4 +210,67 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         retina_detect: true
     });
+
+    function registrarUsuario(event) {
+        event.preventDefault();
+        const nombre = document.getElementById('nombre').value.toLowerCase();
+        const apellido = document.getElementById('apellido').value;
+        const rut = document.getElementById('rut').value;
+        const recinto = document.getElementById('recinto').value;
+        const correo = document.getElementById('correo').value;
+        const telefono = document.getElementById('telefono').value;
+
+        if (rut.length > 9) {
+            mostrarAlerta('El RUT debe contener un máximo de 9 dígitos.', 'error', 5000);
+            return;
+        }
+
+        const user = nombre + rut.slice(0, 4);
+        const password = rut.slice(0, 4);
+
+        const usuario = {
+            nombre,
+            apellido,
+            rut,
+            recinto,
+            correo,
+            telefono,
+            user,
+            password,
+            rol: 'Básico'
+        };
+
+        localStorage.setItem('usuario', JSON.stringify(usuario));
+        mostrarAlerta('Registrado con éxito', 'success', 5000);
+    }
+
+    function iniciarSesion(event) {
+        event.preventDefault();
+        const user = document.getElementById('user').value;
+        const password = document.getElementById('password').value;
+
+        const usuario = JSON.parse(localStorage.getItem('usuario'));
+
+        if (usuario && usuario.user === user && usuario.password === password) {
+            mostrarAlerta('Bienvenido ' + usuario.nombre, 'success', 3000, function() {
+                window.location.href = 'inicio.html';
+            });
+        } else {
+            mostrarAlerta('Usuario o contraseña incorrectos.', 'error', 5000);
+        }
+    }
+
+    function mostrarAlerta(mensaje, tipo, duracion, callback) {
+        const alert = document.getElementById('alert');
+        alert.textContent = mensaje;
+        alert.className = 'alert ' + tipo;
+        alert.style.display = 'block';
+        setTimeout(function() {
+            alert.style.display = 'none';
+            if (callback) callback();
+        }, duracion);
+    }
+
+    document.getElementById('registro-form').addEventListener('submit', registrarUsuario);
+    document.getElementById('login-form').addEventListener('submit', iniciarSesion);
 });
