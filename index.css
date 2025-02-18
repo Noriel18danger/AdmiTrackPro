@@ -2,7 +2,7 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow-y: scroll; /* Permitir desplazamiento vertical */
+    overflow: auto; /* Permitir desplazamiento vertical y horizontal */
 }
 
 #particles-js {
@@ -77,7 +77,7 @@ body, html {
 }
 
 .container {
-    max-width: 900px;
+    max-width: 390px; /* Ajustar el ancho del contenedor */
     margin: 0 auto;
     padding: 0px;
     text-align: center;
@@ -88,7 +88,7 @@ body, html {
     text-align: center;
     margin-bottom: 20px;
     font-size: 40px;
-    max-width: 400px; /* Ajustar el ancho de la intro */
+    max-width: 390px; /* Ajustar el ancho de la intro */
     margin-top: 700px;
 }
 
@@ -116,9 +116,8 @@ body, html {
     font-family: 'Faster One', sans-serif;
     font-size: 38px;
     color: #d1c7c7;
-    margin-bottom: 10px; /* Añadir espacio debajo del título */
-    margin-bottom: 10px; /* Añadir espacio debajo del título */
-    margin-top: 150vh;
+    margin-bottom: 50px; /* Añadir espacio debajo del título */
+    margin-top: 170vh;
     text-transform: uppercase;
     animation: bounceTitle 1.5s infinite alternate; /* Aplicar una animación diferente */
 }
@@ -150,7 +149,7 @@ body, html {
     justify-content: center;
     gap: 10px; /* Espacio entre los botones */
     margin-bottom: 20px; /* Añadir espacio debajo de los botones */
-    max-width: 400px; /* Ajustar el ancho de los botones */
+    max-width: 390px; /* Ajustar el ancho de los botones */
     margin-top: 30vh;
 }
 
@@ -190,7 +189,7 @@ body, html {
     padding-left: 0px;
     padding-right: 0px;
     margin-bottom: 0px;
-    max-width: 400px; /* Ajustar el ancho de la descripción */
+    max-width: 390px; /* Ajustar el ancho de la descripción */
 }
 
 .description h2 {

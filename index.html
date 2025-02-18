@@ -18,7 +18,7 @@
 </head>
 <body>
     <div id="particles-js"></div>
-    <div class="content" style="overflow-y: auto;">
+    <div class="content">
         <header class="site-header">
             <a href="javascript:history.back()" class="back-button">
                 <img src="images/atras.png" alt="Regresar" class="back-button-img">
@@ -28,7 +28,7 @@
             </a>
             <div class="spacer"></div>
         </header>
-        <div class="container" style="max-width: 400px;">
+        <div class="container" style="max-width: 390px;">
             <div class="intro">
                 <p>Bienvenido a la plataforma móvil de AdmiTrackPro. Aquí puedes gestionar tus tareas de manera eficiente.</p>
                 <h2 class="start-title">¡Empieza ya!</h2>
@@ -113,9 +113,9 @@
             const startTitle = document.querySelector('.start-title');
             startTitle.style.animation = 'bounceTitle 1.5s infinite alternate'; // Aplicar una animación diferente
 
-            // Redirigir a index.html si no se ha iniciado sesión
-            if (!localStorage.getItem('usuario')) {
-                window.location.href = 'index.html';
+            // Redirigir a inicio.html si se ha iniciado sesión
+            if (localStorage.getItem('usuario')) {
+                window.location.href = 'inicio.html';
             }
         });
 

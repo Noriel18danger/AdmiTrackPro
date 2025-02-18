@@ -31,8 +31,21 @@
         <div class="container" style="max-width: 400px;">
             <div class="intro">
                 <p>Bienvenido a la plataforma móvil de AdmiTrackPro. Aquí puedes gestionar tus tareas de manera eficiente.</p>
-                <h2 class="start-title">¡Empieza ya!</h2>
                 <div id="particles-title"></div>
+                <div class="icon-buttons">
+                    <a href="usuario.html" class="icon-button">
+                        <img src="images/usuario.png" alt="Usuario" class="icon-img">
+                    </a>
+                    <a href="manual_usuario.html" class="icon-button">
+                        <img src="images/manual.png" alt="Manual" class="icon-img">
+                    </a>
+                    <a href="notificaciones.html" class="icon-button">
+                        <img src="images/notificaciones.png" alt="Notificaciones" class="icon-img">
+                    </a>
+                    <a href="index.html" class="icon-button" onclick="cerrarSesion()">
+                        <img src="images/cerrarsesion.png" alt="Cerrar Sesión" class="icon-img">
+                    </a>
+                </div>
                 <div class="buttons">
                     <a href="vehiculos.html" class="btn">Vehículos</a>
                     <a href="inventario.html" class="btn">Inventario</a>
@@ -81,6 +94,11 @@
                 window.location.href = 'index.html';
             }
         });
+
+        function cerrarSesion() {
+            localStorage.removeItem('usuario');
+            window.location.href = 'index.html';
+        }
     </script>
 </body>
 </html>

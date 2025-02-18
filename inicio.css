@@ -2,16 +2,13 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow-y: auto; /* Permitir desplazamiento vertical */
+    overflow: auto; /* Permitir desplazamiento vertical y horizontal */
 }
 
 #particles-js {
-    position: fixed;
-    top: 50%;
-    left: 50%;
+    position: absolute;
     width: 100%;
     height: 100%;
-    transform: translate(-50%, -50%);
     background-color: #000000;
     background-size: cover;
     background-position: 50% 50%;
@@ -38,7 +35,7 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Asegura que el contenido ocupe al menos toda la altura de la pantalla */
+    min-height: 100vh; /* Asegurar que el contenido ocupe al menos la altura de la pantalla */
 }
 
 .site-header {
@@ -80,26 +77,23 @@ body, html {
 }
 
 .container {
-    max-width: 900px;
+    max-width: 400px;
     margin: 0 auto;
     padding: 0px;
     text-align: center;
 }
 
 .intro {
-    font-family: 'Faster One', sans-serif;
+    font-family: 'Arial', sans-serif;
     text-align: center;
-    margin-bottom: 100px; /* Añadir espacio debajo de la intro */
-    font-size: 40px;
-    max-width: 400px; /* Ajustar el ancho de la intro */
-    margin-top: 10vh;
+    margin-bottom: 20px;
 }
 
 .intro h1 {
-    font-family: 'Faster One', sans-serif;
+    font-family: 'Arial', sans-serif;
     margin-bottom: 10px;
-    font-size: 42px;
-    margin-top: vh;
+    font-size: 32px;
+    margin-top: -30vh;
     top: 0;
     left: 0;
     right: 0;
@@ -108,10 +102,10 @@ body, html {
 
 .intro p {
     font-family: 'arial', sans-serif;
-    font-size: 18px;
+    font-size: 15px;
     line-height: 1.5;
     margin-bottom: 20px;
-    animation: fadeIn 3s ease-in-out;
+    animation: fadeIn 1s ease-in-out;
     text-align: center;
 }
 
@@ -147,6 +141,34 @@ body, html {
     }
 }
 
+.icon-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 35px; /* Espacio entre los iconos */
+    margin-bottom: -150px; /* Añadir espacio debajo de los iconos */
+    margin-top: 200vh;
+    color: rgb(255, 0, 0);
+}
+
+.icon-button {
+    display: inline-block;
+    transition: transform 0.3s, box-shadow 0.3s;
+    color: rgb(255, 0, 0);
+}
+
+.icon-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    color: rgb(255, 0, 0);
+}
+
+.icon-img {
+    width: 50px;
+    height: 50px;
+    filter: invert(38%) sepia(100%) saturate(1000%) hue-rotate(0deg) brightness(100%) contrast(100%); /* Color rojo */
+    color: rgb(255, 0, 0);
+}
+
 .buttons {
     display: flex;
     flex-wrap: wrap;
@@ -176,7 +198,7 @@ body, html {
 }
 
 .btn:hover {
-    background-color: #000000;
+    background-color: #cc0000;
     transform: scale(1.05);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
     text-align: center;
@@ -197,7 +219,7 @@ body, html {
 }
 
 .description h2 {
-    font-family: 'Arial', sans-serif;
+    font-family: 'arial', sans-serif;
     font-size: 28px;
     color: #ff0000;
     margin-bottom: 10px;
