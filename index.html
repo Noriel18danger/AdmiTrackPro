@@ -9,30 +9,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="index.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
     <div id="particles-js"></div>
-    <div class="content">
-        <header class="site-header">
-            <a href="javascript:history.back()" class="back-button">
-                <img src="images/atras.png" alt="Regresar" class="back-button-img">
-            </a>
-            <a href="index.html" class="logo-link">
-                <h1 class="logo">AdmiTrackPro</h1>
-            </a>
-            <div class="spacer"></div>
-        </header>
-        <div class="container" style="max-width: 390px;">
-            <div class="intro">
+    <div id="threejs-container"></div>
+    <div class="content" style="overflow: hidden;">
+        <div class="container" style="max-width: 390px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <div class="intro" style="text-align: center;">
                 <p>Bienvenido a la plataforma móvil de AdmiTrackPro. Aquí puedes gestionar tus tareas de manera eficiente.</p>
-                <h2 class="start-title">¡Empieza ya!</h2>
-                <div id="particles-title"></div>
+                <h2 class="start-title" style="font-family: 'Zen Dots', sans-serif;">SGCAR</h2>
+                <!-- Sistema de Inicio de Sesión -->
+                <div class="form-container">
+                    <h2>Inicio de Sesión</h2>
+                    <form id="login-form" onsubmit="iniciarSesion(event)">
+                        <div class="form-group">
+                            <label for="user">Usuario:</label>
+                            <input type="text" id="user" name="user" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Contraseña:</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn">Iniciar Sesión</button>
+                    </form>
+                </div>
                 <!-- Sistema de Registro -->
                 <div class="form-container">
                     <h2>Registro de Usuario</h2>
@@ -64,21 +75,6 @@
                         <button type="submit" class="btn">Registrar</button>
                     </form>
                 </div>
-                <!-- Sistema de Inicio de Sesión -->
-                <div class="form-container">
-                    <h2>Inicio de Sesión</h2>
-                    <form id="login-form" onsubmit="iniciarSesion(event)">
-                        <div class="form-group">
-                            <label for="user">Usuario:</label>
-                            <input type="text" id="user" name="user" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Contraseña:</label>
-                            <input type="password" id="password" name="password" required>
-                        </div>
-                        <button type="submit" class="btn">Iniciar Sesión</button>
-                    </form>
-                </div>
                 <div class="description">
                     <h2 style="text-align: center;">¿Qué es AdmiTrackPro?</h2>
                     <p style="text-align: center;">AdmiTrackPro es una plataforma web diseñada para la gestión integral de un taller mecánico. Con esta herramienta, puedes registrar, gestionar y controlar todos los aspectos de tu taller, incluyendo vehículos, logística, trabajadores, pagos, agenda y citas, y control de mejoras. Nuestra plataforma está optimizada para dispositivos móviles, ofreciendo una experiencia de usuario cómoda y eficiente.</p>
@@ -108,76 +104,120 @@
     <div id="alert" class="alert"></div>
     <script src="index.js"></script>
     <script src="scripts.js"></script>
+    <script src="background.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const startTitle = document.querySelector('.start-title');
-            startTitle.style.animation = 'bounceTitle 1.5s infinite alternate'; // Aplicar una animación diferente
-
-            // Redirigir a inicio.html si se ha iniciado sesión
-            if (localStorage.getItem('usuario')) {
-                window.location.href = 'inicio.html';
-            }
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#6d6d6d"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    },
+                    "image": {
+                        "src": "img/github.svg",
+                        "width": 100,
+                        "height": 100
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#6d6d6d",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
         });
 
-        function registrarUsuario(event) {
-            event.preventDefault();
-            const nombre = document.getElementById('nombre').value.toLowerCase();
-            const apellido = document.getElementById('apellido').value;
-            const rut = document.getElementById('rut').value;
-            const recinto = document.getElementById('recinto').value;
-            const correo = document.getElementById('correo').value;
-            const telefono = document.getElementById('telefono').value;
-
-            if (rut.length > 9) {
-                mostrarAlerta('El RUT debe contener un máximo de 9 dígitos.', 'error', 5000);
-                return;
-            }
-
-            const user = nombre + rut.slice(0, 4);
-            const password = rut.slice(0, 4);
-
-            const usuario = {
-                nombre,
-                apellido,
-                rut,
-                recinto,
-                correo,
-                telefono,
-                user,
-                password,
-                rol: 'Básico'
-            };
-
-            localStorage.setItem('usuario', JSON.stringify(usuario));
-            mostrarAlerta('Registrado con éxito', 'success', 5000);
-        }
-
-        function iniciarSesion(event) {
-            event.preventDefault();
-            const user = document.getElementById('user').value;
-            const password = document.getElementById('password').value;
-
-            const usuario = JSON.parse(localStorage.getItem('usuario'));
-
-            if (usuario && usuario.user === user && usuario.password === password) {
-                mostrarAlerta('Bienvenido ' + usuario.nombre, 'success', 3000, function() {
-                    window.location.href = 'inicio.html';
-                });
-            } else {
-                mostrarAlerta('Usuario o contraseña incorrectos.', 'error', 5000);
-            }
-        }
-
-        function mostrarAlerta(mensaje, tipo, duracion, callback) {
-            const alert = document.getElementById('alert');
-            alert.textContent = mensaje;
-            alert.className = 'alert ' + tipo;
-            alert.style.display = 'block';
-            setTimeout(function() {
-                alert.style.display = 'none';
-                if (callback) callback();
-            }, duracion);
-        }
+        // Eliminar animaciones del título "SGCAR"
     </script>
 </body>
 </html>

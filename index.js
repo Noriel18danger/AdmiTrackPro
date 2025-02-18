@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             },
             color: {
-                value: '#ffffff'
+                value: '#6d6d6d' // Cambiar el color a gris
             },
             shape: {
                 type: 'circle',
@@ -44,13 +44,13 @@ document.addEventListener('DOMContentLoaded', function() {
             line_linked: {
                 enable: true,
                 distance: 150,
-                color: '#ffffff',
+                color: '#6d6d6d', // Cambiar el color a gris
                 opacity: 0.4,
                 width: 1
             },
             move: {
                 enable: true,
-                speed: 6,
+                speed: 2, // Disminuir la velocidad de las partículas
                 direction: 'none',
                 random: false,
                 straight: false,
@@ -211,6 +211,13 @@ document.addEventListener('DOMContentLoaded', function() {
         retina_detect: true
     });
 
+    // Eliminar animaciones del título "¡Empieza ya!"
+
+    // Redirigir a inicio.html si se ha iniciado sesión
+    if (localStorage.getItem('usuario')) {
+        window.location.href = 'inicio.html';
+    }
+
     function registrarUsuario(event) {
         event.preventDefault();
         const nombre = document.getElementById('nombre').value.toLowerCase();
@@ -273,4 +280,41 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('registro-form').addEventListener('submit', registrarUsuario);
     document.getElementById('login-form').addEventListener('submit', iniciarSesion);
-});
+
+    // Inicializar fondo animado
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.addEventListener('DOMContentLoaded', function() {
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('background').appendChild(renderer.domElement);
+    
+        const geometry = new THREE.BoxGeometry(1, 1, 1);
+        const material = new THREE.MeshBasicMaterial({ color: 0x6d6d6d, wireframe: true });
+        const cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+    
+        camera.position.z = 5;
+    
+        function animate() {
+            requestAnimationFrame(animate);
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+    
+        animate();
+    
+        // Configuración adicional para el fondo animado
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    });
+    
+})

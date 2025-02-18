@@ -2,47 +2,47 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: auto; /* Permitir desplazamiento vertical y horizontal */
+    overflow: auto; /* Habilitar desplazamiento vertical y horizontal */
+    background-color: #eeeeee00; /* Fondo blanco */
 }
 
 #particles-js {
-    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: #000000;
-    background-size: cover;
-    background-position: 50% 50%;
-    z-index: -1;
+    z-index: -2;
 }
 
-#particles-title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+#threejs-container {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    transform: translate(-50%, -50%);
     z-index: -1;
 }
 
 .content {
     position: relative;
     z-index: 1;
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Asegurar que el contenido ocupe al menos la altura de la pantalla */
+    min-height: 300vh; /* Asegurar que el contenido ocupe al menos la altura de la pantalla */
+    overflow: visible; /* Quitar barra de desplazamiento del centro */
 }
 
 .site-header {
-    background-color: #000000;
+    background-color: #ffffff;
     padding: 10px 0;
     text-align: center;
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #ffffff;
     width: 100%;
     display: flex;
     align-items: center;
@@ -51,7 +51,7 @@ body, html {
 
 .site-header .logo-link {
     text-decoration: none;
-    color: #ffffff;
+    color: #000000;
     flex-grow: 1;
     text-align: center;
 }
@@ -81,6 +81,12 @@ body, html {
     margin: 0 auto;
     padding: 0px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: visible; /* Quitar barra de desplazamiento del centro */
 }
 
 .intro {
@@ -113,13 +119,17 @@ body, html {
 }
 
 .start-title {
-    font-family: 'Faster One', sans-serif;
-    font-size: 38px;
-    color: #d1c7c7;
+    font-family: 'Zen Dots', sans-serif; /* Cambiar la fuente a Zen Dots */
+    font-size: 60px;
+    color: #000000;
     margin-bottom: 50px; /* Añadir espacio debajo del título */
     margin-top: 170vh;
     text-transform: uppercase;
-    animation: bounceTitle 1.5s infinite alternate; /* Aplicar una animación diferente */
+    display: inline-block; /* Necesario para la animación Anime.js */
+    transform-style: preserve-3d; /* Necesario para la animación 3D de GSAP */
+    /* Eliminar animaciones */
+    animation: none;
+    transition: none;
 }
 
 @keyframes moveTitle {
@@ -149,22 +159,22 @@ body, html {
     justify-content: center;
     gap: 10px; /* Espacio entre los botones */
     margin-bottom: 20px; /* Añadir espacio debajo de los botones */
-    max-width: 390px; /* Ajustar el ancho de los botones */
+    max-width: 300px; /* Ajustar el ancho de los botones */
     margin-top: 30vh;
 }
 
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #ff0000;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 10px;
+    background-color: #e9e9e9;
+    color: #000000;
+    text-decoration: none; /* Quitar subrayado */
+    border-radius: 3px;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
     font-size: 14px; /* Tamaño de la fuente */
     font-weight: 700;   /* Grosor de la fuente */
     text-align: center; /* Centrar el texto */
-    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.329);
     text-transform: uppercase; /* Todo en mayúsculas */
     margin-right: 0px; /* Espacio entre los botones */
     max-width: 300px;
@@ -172,18 +182,18 @@ body, html {
 }
 
 .btn:hover {
-    background-color: #cc0000;
-    transform: scale(1.05);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-    text-align: center;
+    background-color: #dfdfdf; /* Cambiar el color de fondo al pasar el ratón */
+    transform: scale(1.05); /* Aumentar el tamaño al pasar el ratón */
+    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.226); /* Añadir sombra al pasar el ratón */
+    text-align: center; /* Centrar el texto */
 }
 
 .description {
     margin-top: 20px;
     padding: 20px;
-    background-color: #00000054;
+    background-color: #ffffff00;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0);
     text-align: left;
     animation: fadeIn 1.5s ease-in-out;
     padding-left: 0px;
@@ -195,47 +205,57 @@ body, html {
 .description h2 {
     font-family: 'arial', sans-serif;
     font-size: 28px;
-    color: #ff0000;
+    color: #000000;
     margin-bottom: 10px;
 }
 
 .description p {
     font-size: 16px;
     line-height: 1.6;
-    color: #ffffff;
+    color: #000000;
 }
 
 .form-container {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    margin-top: 1vh;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 20px; /* Añadir espacio alrededor del formulario */
+    border-radius: 8px; /* Añadir bordes redondeados */
+    margin-bottom: 20px; /* Añadir espacio debajo del formulario */
+    margin-top: 1vh; /* Añadir espacio encima del formulario */
+    box-shadow: 0 0 15px rgba(126, 126, 126, 0);
+    max-width: 375px; /* Ajustar el ancho del formulario */
+    text-align: center; /* Centrar el contenido */
+    animation: fadeIn 0.5s ease-in-out;
+    width: 375px; /* Ajustar el tamaño del cuadro del formulario */
+    max-width: 2000px; /* Ajustar el tamaño máximo del cuadro del formulario */
+    position: relative; /* Permitir el ajuste de la posición */
+    size: 370px; /* Ajustar el tamaño del formulario */
+    left: -4%;
+    right: 50%; /* Ajustar la posición a la derecha */
 }
 
 .form-container h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    margin-top: 1vh;
+    font-size: 24px; /* Tamaño de la fuente */
+    margin-bottom: 20px; /* Añadir espacio debajo del título */
+    margin-top: 1vh; /* Añadir espacio encima del título */
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 15px;    /* Añadir espacio entre los campos */
 }
 
-.form-group label {
-    display: block;
-    font-size: 14px;
-    margin-bottom: 5px;
+.form-group label { /* Estilos para las etiquetas */
+    display: block; /* Mostrar en bloque */
+    font-size: 14px; /* Tamaño de la fuente */
+    margin-bottom: 5px; /* Añadir espacio debajo de la etiqueta */
 }
 
 .form-group input {
-    width: 85%;
-    padding: 10px;
-    font-size: 20px;
-    border: 1px solid #ffffff;
-    border-radius: 5px;
-    margin-top: 1vh;
+    width: 92%; /* Ajustar el ancho del campo de entrada */
+    padding: 10px; /* Añadir espacio alrededor del texto */
+    font-size: 20px; /* Tamaño de la fuente */
+    border: 0,9px solid #000000; /* Añadir borde al campo de entrada */
+    border-radius: 5px; /* Añadir bordes redondeados */
+    margin-top: 1vh; /* Añadir espacio encima del campo de entrada */
 }
 
 @keyframes fadeIn {
