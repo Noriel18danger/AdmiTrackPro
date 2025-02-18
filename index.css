@@ -110,12 +110,17 @@ body, html {
 }
 
 .intro p {
-    font-family: 'arial', sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    animation: fadeIn 1s ease-in-out;
-    text-align: center;
+    font-family: 'Lexend deca', sans-serif;
+    font-size: 17px;
+    line-height: 1.6; /* Ajustar el interlineado */
+    margin-bottom: 0px;    /* Añadir espacio debajo del párrafo */
+    animation: fadeIn 1s ease-in-out; /* Añadir animación de entrada */
+    text-align: center; /* Centrar el texto */
+    margin-top: 22vh;
+
+
+ 
+    
 }
 
 .start-title {
@@ -189,7 +194,7 @@ body, html {
 }
 
 .description {
-    margin-top: 20px;
+    margin-top: 40px;
     padding: 20px;
     background-color: #ffffff00;
     border-radius: 5px;
@@ -231,16 +236,19 @@ body, html {
     size: 370px; /* Ajustar el tamaño del formulario */
     left: -4%;
     right: 50%; /* Ajustar la posición a la derecha */
+    margin-top: 40px;
+    top: 5%; /* Centrar verticalmente */
+    transform: translateY(-50%); /* Ajustar para centrar */
 }
 
 .form-container h2 {
     font-size: 24px; /* Tamaño de la fuente */
     margin-bottom: 20px; /* Añadir espacio debajo del título */
-    margin-top: 1vh; /* Añadir espacio encima del título */
+    margin-top: 30vh; /* Añadir espacio encima del título */
 }
 
 .form-group {
-    margin-bottom: 15px;    /* Añadir espacio entre los campos */
+    margin-bottom: 15px;    /* Añadir espacio entre los campos */;
 }
 
 .form-group label { /* Estilos para las etiquetas */
@@ -255,7 +263,7 @@ body, html {
     font-size: 20px; /* Tamaño de la fuente */
     border: 0,9px solid #000000; /* Añadir borde al campo de entrada */
     border-radius: 5px; /* Añadir bordes redondeados */
-    margin-top: 1vh; /* Añadir espacio encima del campo de entrada */
+    margin-top: -0vh; /* Añadir espacio encima del campo de entrada */
 }
 
 @keyframes fadeIn {
@@ -316,4 +324,21 @@ body, html {
 .alert.info {
     background-color: #2196F3;
     color: white;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    background-color: #ffffff;
+}
+
+.header-title {
+    font-family: 'Zen Dots', sans-serif;
+    font-size: 60px;
+    color: #000000;
+    text-align: center;
+    margin-top: 17vh;
 }

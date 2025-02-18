@@ -1,0 +1,56 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: auto; /* Habilitar desplazamiento vertical y horizontal */
+    background-color: #eeeeee00; /* Fondo blanco */
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+#threejs-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 300vh; /* Asegurar que el contenido ocupe al menos la altura de la pantalla */
+    overflow: visible; /* Quitar barra de desplazamiento del centro */
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    background-color: #ffffff;
+}
+
+.header-title {
+    font-family: 'Zen Dots', sans-serif;
+    font-size: 60px;
+    color: #000000;
+    text-align: center;
+    margin-top: 17vh;
+}
