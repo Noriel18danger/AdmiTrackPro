@@ -14,35 +14,68 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
-    <header class="site-header">
-        <a href="index.html" class="logo-link">
-            <h1 class="logo">AdmiTrackPro</h1>
-        </a>
-    </header>
-    <div class="container">
-        <div class="intro">
-            <p>Bienvenido a la plataforma móvil de AdmiTrackPro. Aquí puedes gestionar tus tareas de manera eficiente.</p>
-            <div class="buttons">
-                <a href="vehiculos.html" class="btn">Vehículos</a>
-                <a href="inventario.html" class="btn">Inventario</a>
-                <a href="agenda.html" class="btn">Agenda</a>
-                <a href="administracion.html" class="btn">Administración</a>
-                <a href="taller_mecanico.html" class="btn">Taller Mecánico</a>
-                <a href="pagos.html" class="btn">Pagos</a>
-                <a href="estadisticas.html" class="btn">Estadísticas</a>
-                <a href="control_mejoras.html" class="btn">Control de Mejoras</a>
+    <div id="particles-js"></div>
+    <div class="content">
+        <header class="site-header">
+            <a href="javascript:history.back()" class="back-button">
+                <img src="images/atras.png" alt="Regresar" class="back-button-img">
+            </a>
+            <a href="index.html" class="logo-link">
+                <h1 class="logo">AdmiTrackPro</h1>
+            </a>
+            <div class="spacer"></div>
+        </header>
+        <div class="container" style="max-width: 400px;">
+            <div class="intro">
+                <p>Bienvenido a la plataforma móvil de AdmiTrackPro. Aquí puedes gestionar tus tareas de manera eficiente.</p>
+                <h2 class="start-title">¡Empieza ya!</h2>
+                <div id="particles-title"></div>
+                <div class="buttons">
+                    <a href="vehiculos.html" class="btn">Vehículos</a>
+                    <a href="inventario.html" class="btn">Inventario</a>
+                    <a href="agenda.html" class="btn">Agenda</a>
+                    <a href="administracion.html" class="btn">Administración</a>
+                    <a href="taller_mecanico.html" class="btn">Taller Mecánico</a>
+                    <a href="pagos.html" class="btn">Pagos</a>
+                    <a href="estadisticas.html" class="btn">Estadísticas</a>
+                    <a href="control_mejoras.html" class="btn">Control de Mejoras</a>
+                </div>
+                <div class="description">
+                    <h2 style="text-align: center;">¿Qué es AdmiTrackPro?</h2>
+                    <p style="text-align: center;">AdmiTrackPro es una plataforma web diseñada para la gestión integral de un taller mecánico. Con esta herramienta, puedes registrar, gestionar y controlar todos los aspectos de tu taller, incluyendo vehículos, logística, trabajadores, pagos, agenda y citas, y control de mejoras. Nuestra plataforma está optimizada para dispositivos móviles, ofreciendo una experiencia de usuario cómoda y eficiente.</p>
+                </div>
+                <div class="description">
+                    <h2 style="text-align: center;">Quiénes somos</h2>
+                    <p style="text-align: center;">Somos un equipo de profesionales dedicados a proporcionar soluciones tecnológicas para la gestión de talleres mecánicos. Nuestro objetivo es facilitar la administración y mejorar la eficiencia operativa de nuestros clientes.</p>
+                </div>
+                <div class="description">
+                    <h2 style="text-align: center;">Misión</h2>
+                    <p style="text-align: center;">Nuestra misión es ofrecer una plataforma integral que permita a los talleres mecánicos gestionar sus operaciones de manera eficiente, mejorando la productividad y la satisfacción del cliente.</p>
+                </div>
+                <div class="description">
+                    <h2 style="text-align: center;">Visión</h2>
+                    <p style="text-align: center;">Ser la plataforma líder en gestión de talleres mecánicos, reconocida por su innovación, facilidad de uso y capacidad para transformar la manera en que se administran los talleres.</p>
+                </div>
+                <div class="description">
+                    <h2 style="text-align: center;">Objetivo para el usuario</h2>
+                    <p style="text-align: center;">Proporcionar a los usuarios una herramienta poderosa y fácil de usar que les permita gestionar todas las áreas de su taller mecánico, desde la administración de vehículos hasta la gestión de pagos y citas.</p>
+                </div>
             </div>
-            <div class="description">
-                <h2>¿Qué es AdmiTrackPro?</h2>
-                <p>AdmiTrackPro es una plataforma web diseñada para la gestión integral de un taller mecánico. Con esta herramienta, puedes registrar, gestionar y controlar todos los aspectos de tu taller, incluyendo vehículos, logística, trabajadores, pagos, agenda y citas, y control de mejoras. Nuestra plataforma está optimizada para dispositivos móviles, ofreciendo una experiencia de usuario cómoda y eficiente.</p>
+            <div class="footer">
+                <p>&copy; 2023 AdmiTrackPro. Todos los derechos reservados.</p>
             </div>
-        </div>
-        <div class="footer">
-            <p>&copy; 2023 AdmiTrackPro. Todos los derechos reservados.</p>
         </div>
     </div>
+    <script src="index.js"></script>
     <script src="scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const startTitle = document.querySelector('.start-title');
+            startTitle.style.animation = 'bounceTitle 1.5s infinite alternate'; // Aplicar una animación diferente
+        });
+    </script>
 </body>
 </html>

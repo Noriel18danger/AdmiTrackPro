@@ -1,17 +1,150 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-y: auto; /* Permitir desplazamiento vertical */
+}
+
+#particles-js {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    background-color: #000000;
+    background-size: cover;
+    background-position: 50% 50%;
+    z-index: -1;
+}
+
+#particles-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Asegura que el contenido ocupe al menos toda la altura de la pantalla */
+}
+
+.site-header {
+    background-color: #000000;
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 1px solid #000000;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-header .logo-link {
+    text-decoration: none;
+    color: #ffffff;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.site-header .logo {
+    margin: 0;
+    font-size: 2.25em;
+}
+
+.back-button {
+    margin-left: 20px;
+}
+
+.back-button-img {
+    width: 30px;
+    height: 30px;
+}
+
+.spacer {
+    width: 30px; /* Espacio para mantener el logo centrado */
+    height: 30px;
+    margin-right: 20px;
+}
+
 .container {
-    margin-top: 60vh; /* Espacio adicional para que el contenido se vea desde más arriba */
-    max-width: 375px; /* Ajuste para un diseño móvil */
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0px;
+    text-align: center;
 }
 
 .intro {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Faster One', sans-serif;
+    text-align: center;
+    margin-bottom: 100px; /* Añadir espacio debajo de la intro */
+    font-size: 40px;
+    max-width: 400px; /* Ajustar el ancho de la intro */
+    margin-top: 10vh;
+}
+
+.intro h1 {
+    font-family: 'Faster One', sans-serif;
+    margin-bottom: 10px;
+    font-size: 42px;
+    margin-top: vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    animation: fadeIn 2s ease-in-out;
 }
 
 .intro p {
-    font-size: 25px;
+    font-family: 'arial', sans-serif;
+    font-size: 18px;
     line-height: 1.5;
     margin-bottom: 20px;
-    animation: fadeIn 2s ease-in-out;
+    animation: fadeIn 3s ease-in-out;
+    text-align: center;
+}
+
+.start-title {
+    font-family: 'Faster One', sans-serif;
+    font-size: 38px;
+    color: #d1c7c7;
+    margin-bottom: 10px; /* Añadir espacio debajo del título */
+    margin-bottom: -180px; /* Añadir espacio debajo del título */
+    margin-top: 180vh;
+    text-transform: uppercase;
+    animation: bounceTitle 1.5s infinite alternate; /* Aplicar una animación diferente */
+}
+
+@keyframes moveTitle {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes bounceTitle {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .buttons {
@@ -20,6 +153,8 @@
     justify-content: center;
     gap: 10px; /* Espacio entre los botones */
     margin-bottom: 20px; /* Añadir espacio debajo de los botones */
+    max-width: 400px; /* Ajustar el ancho de los botones */
+    margin-top: 30vh;
 }
 
 .btn {
@@ -28,36 +163,41 @@
     background-color: #ff0000;
     color: #ffffff;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 10px;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    animation: bounceIn 1s ease-in-out;
-    flex: 1 1 calc(50% - 20px); /* Ajuste para que los botones ocupen la mitad del ancho con espacio */
-    max-width: 150px; /* Ajuste para que los botones tengan un ancho máximo */
-    font-size: 14px;
-    font-weight: 700;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para los botones */
-    font-family: 'Arial', sans-serif; /* Aplicar la fuente Lexend Deca */
+    font-size: 14px; /* Tamaño de la fuente */
+    font-weight: 700;   /* Grosor de la fuente */
+    text-align: center; /* Centrar el texto */
+    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1);
     text-transform: uppercase; /* Todo en mayúsculas */
+    margin-right: 0px; /* Espacio entre los botones */
+    max-width: 300px;
+    margin-top: 1vh;
 }
 
 .btn:hover {
-    background-color: #cc0000;
-    transform: scale(1.1); /* Aumentar la escala al pasar el mouse */
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el mouse */
+    background-color: #000000;
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
 .description {
     margin-top: 20px;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #00000054;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: left;
     animation: fadeIn 1.5s ease-in-out;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 0px;
+    max-width: 400px; /* Ajustar el ancho de la descripción */
 }
 
 .description h2 {
+    font-family: 'Arial', sans-serif;
     font-size: 28px;
     color: #ff0000;
     margin-bottom: 10px;
@@ -66,7 +206,7 @@
 .description p {
     font-size: 16px;
     line-height: 1.6;
-    color: #333;
+    color: #ffffff;
 }
 
 @keyframes fadeIn {
