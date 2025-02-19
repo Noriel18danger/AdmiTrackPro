@@ -1,8 +1,11 @@
 body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
+    margin: 0; /* Elimina el margen de la página */
+    padding:0; /* Elimina el relleno de la página */
+    height: 100%; /* Asegura que el cuerpo y el HTML ocupen toda la altura de la pantalla */
+    overflow: unset !important; /* Habilita el desplazamiento vertical y horizontal */
+    max-height: 700px; /* Limita la altura de la página */
+    max-width: 400px; /* Limita el ancho de la página */
+
 }
 
 .video-background {

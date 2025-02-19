@@ -4,24 +4,26 @@ body, html {
     height: 100%;
     overflow: auto; /* Habilitar desplazamiento vertical y horizontal */
     background-color: #eeeeee00; /* Fondo blanco */
-}
-
-#particles-js {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
+    -webkit-overflow-scrolling: touch; /* Habilitar desplazamiento suave para dispositivos móviles */
 }
 
 #threejs-container {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
+}
+
+#background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
 }
 
 .content {
@@ -34,8 +36,7 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 300vh; /* Asegurar que el contenido ocupe al menos la altura de la pantalla */
-    overflow: visible; /* Quitar barra de desplazamiento del centro */
+    min-height: 100vh; /* Asegurar que el contenido ocupe al menos la altura de la pantalla */
 }
 
 .site-header {
@@ -77,7 +78,7 @@ body, html {
 }
 
 .container {
-    max-width: 390px; /* Ajustar el ancho del contenedor */
+    max-width: 450px; /* Ajustar el ancho del contenedor */
     margin: 0 auto;
     padding: 0px;
     text-align: center;
@@ -85,24 +86,23 @@ body, html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    overflow: visible; /* Quitar barra de desplazamiento del centro */
+    min-height: 100vh; /* Asegurar que el contenedor ocupe al menos la altura de la pantalla */
 }
 
 .intro {
     font-family: 'Arial', sans-serif;
     text-align: center;
-    margin-bottom: 20px;
-    font-size: 40px;
-    max-width: 390px; /* Ajustar el ancho de la intro */
-    margin-top: 700px;
+    margin-bottom: 0px;
+    font-size: 20px; /* Ajustar el tamaño de la fuente para móviles */
+    max-width: 450px; /* Ajustar el ancho de la intro */
+    margin-top: 500px;
 }
 
 .intro h1 {
     font-family: 'Arial', sans-serif;
     margin-bottom: 10px;
-    font-size: 32px;
-    margin-top: -30vh;
+    font-size: 24px; /* Ajustar el tamaño de la fuente para móviles */
+    margin-top: 0;
     top: 0;
     left: 0;
     right: 0;
@@ -110,25 +110,28 @@ body, html {
 }
 
 .intro p {
-    font-family: 'Lexend deca', sans-serif;
-    font-size: 17px;
+    font-family: 'Arial', sans-serif; /* Cambiar la fuente a Poppins */
+    font-size: 20px; /* Ajustar el tamaño de la fuente para móviles */
     line-height: 1.6; /* Ajustar el interlineado */
-    margin-bottom: 0px;    /* Añadir espacio debajo del párrafo */
+    margin-bottom: 20px; /* Añadir espacio debajo del párrafo */
     animation: fadeIn 1s ease-in-out; /* Añadir animación de entrada */
     text-align: center; /* Centrar el texto */
-    margin-top: 22vh;
-
-
- 
+    margin-top: -30vh;
+    background-color: rgb(255, 255, 255);
+    padding: 15px;
+    border-radius: 30px;
+    box-shadow:0 0 15px #000000;    
+    color: #000000;
+    text-shadow:0 0 4px rgba(0, 0, 0, 0);
     
 }
 
 .start-title {
     font-family: 'Zen Dots', sans-serif; /* Cambiar la fuente a Zen Dots */
-    font-size: 60px;
+    font-size: 36px; /* Ajustar el tamaño de la fuente para móviles */
     color: #000000;
-    margin-bottom: 50px; /* Añadir espacio debajo del título */
-    margin-top: 170vh;
+    margin-bottom: 20px; /* Añadir espacio debajo del título */
+    margin-top: 20px;
     text-transform: uppercase;
     display: inline-block; /* Necesario para la animación Anime.js */
     transform-style: preserve-3d; /* Necesario para la animación 3D de GSAP */
@@ -165,7 +168,7 @@ body, html {
     gap: 10px; /* Espacio entre los botones */
     margin-bottom: 20px; /* Añadir espacio debajo de los botones */
     max-width: 300px; /* Ajustar el ancho de los botones */
-    margin-top: 30vh;
+    margin-top: 20px;
 }
 
 .btn {
@@ -183,7 +186,7 @@ body, html {
     text-transform: uppercase; /* Todo en mayúsculas */
     margin-right: 0px; /* Espacio entre los botones */
     max-width: 300px;
-    margin-top: 1vh;
+    margin-top: 10px;
 }
 
 .btn:hover {
@@ -194,7 +197,7 @@ body, html {
 }
 
 .description {
-    margin-top: 40px;
+    margin-top: 20px;
     padding: 20px;
     background-color: #ffffff00;
     border-radius: 5px;
@@ -203,67 +206,21 @@ body, html {
     animation: fadeIn 1.5s ease-in-out;
     padding-left: 0px;
     padding-right: 0px;
-    margin-bottom: 0px;
-    max-width: 390px; /* Ajustar el ancho de la descripción */
+    margin-bottom: 20px;
+    max-width: 450px; /* Ajustar el ancho de la descripción */
 }
 
 .description h2 {
     font-family: 'arial', sans-serif;
-    font-size: 28px;
+    font-size: 24px; /* Ajustar el tamaño de la fuente para móviles */
     color: #000000;
     margin-bottom: 10px;
 }
 
 .description p {
-    font-size: 16px;
+    font-size: 16px; /* Ajustar el tamaño de la fuente para móviles */
     line-height: 1.6;
     color: #000000;
-}
-
-.form-container {
-    background-color: rgba(255, 255, 255, 0);
-    padding: 20px; /* Añadir espacio alrededor del formulario */
-    border-radius: 8px; /* Añadir bordes redondeados */
-    margin-bottom: 20px; /* Añadir espacio debajo del formulario */
-    margin-top: 1vh; /* Añadir espacio encima del formulario */
-    box-shadow: 0 0 15px rgba(126, 126, 126, 0);
-    max-width: 375px; /* Ajustar el ancho del formulario */
-    text-align: center; /* Centrar el contenido */
-    animation: fadeIn 0.5s ease-in-out;
-    width: 375px; /* Ajustar el tamaño del cuadro del formulario */
-    max-width: 2000px; /* Ajustar el tamaño máximo del cuadro del formulario */
-    position: relative; /* Permitir el ajuste de la posición */
-    size: 370px; /* Ajustar el tamaño del formulario */
-    left: -4%;
-    right: 50%; /* Ajustar la posición a la derecha */
-    margin-top: 40px;
-    top: 5%; /* Centrar verticalmente */
-    transform: translateY(-50%); /* Ajustar para centrar */
-}
-
-.form-container h2 {
-    font-size: 24px; /* Tamaño de la fuente */
-    margin-bottom: 20px; /* Añadir espacio debajo del título */
-    margin-top: 30vh; /* Añadir espacio encima del título */
-}
-
-.form-group {
-    margin-bottom: 15px;    /* Añadir espacio entre los campos */;
-}
-
-.form-group label { /* Estilos para las etiquetas */
-    display: block; /* Mostrar en bloque */
-    font-size: 14px; /* Tamaño de la fuente */
-    margin-bottom: 5px; /* Añadir espacio debajo de la etiqueta */
-}
-
-.form-group input {
-    width: 92%; /* Ajustar el ancho del campo de entrada */
-    padding: 10px; /* Añadir espacio alrededor del texto */
-    font-size: 20px; /* Tamaño de la fuente */
-    border: 0,9px solid #000000; /* Añadir borde al campo de entrada */
-    border-radius: 5px; /* Añadir bordes redondeados */
-    margin-top: -0vh; /* Añadir espacio encima del campo de entrada */
 }
 
 @keyframes fadeIn {
@@ -327,18 +284,179 @@ body, html {
 }
 
 .header {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+    width: 100%; /* Ajustar el ancho del encabezado */
+    height: 30px;
+    display: flex; /* Alinear elementos en fila */
+    justify-content: center; /* Centrar elementos horizontalmente */
     align-items: center;
-    padding: 20px 0;
-    background-color: #ffffff;
+    padding: 20px 0; /* Añadir espacio alrededor del encabezado */
+    background-color: #00000000; /* Cambiar el color del encabezado a verde */
+    position: fixed; /* Hacer que el encabezado se mantenga a la vista */
+    top: 0;
+    z-index: 1000; /* Asegurar que el encabezado esté por encima de otros elementos */
+    
 }
 
 .header-title {
     font-family: 'Zen Dots', sans-serif;
-    font-size: 60px;
-    color: #000000;
+    font-size: 63px; /* Ajustar el tamaño de la fuente para móviles */
+    color: #ffffff;
+    margin-top: 20px; /* Añadir espacio encima del título */
     text-align: center;
-    margin-top: 17vh;
+    margin-top: 6vh;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.208);
+}
+
+/* Estilos adicionales para SVG y enlaces */
+body {
+    background-color: #000000;
+}
+
+svg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.links {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    margin-left: 1em;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a img.icon {
+    display: inline-block;
+    height: 1em;
+    margin: 0 0 -0.1em 0.3em;
+}
+
+/* Configuración para cambiar todos los colores del SVG adicional */
+svg path {
+    fill: #a1a1a170; /* Cambiar el color de relleno de todos los caminos del SVG */
+}
+
+/* Estilos para el formulario de registro e inicio de sesión */
+.registration-info {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.registration-info h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.registration-info p,
+.registration-info ul {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.registration-info ul {
+    text-align: left;
+    display: inline-block;
+}
+
+.form-container {
+    text-align: center;
+    margin-top: -330px;
+    padding: 20px;
+    background-color: #cbcbcb;
+    border-radius: 45px;
+    box-shadow: 0 0 60px rgb(0, 0, 0);
+    position: center;
+    width: 90%;
+    max-width: 400px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.form-container h2 {
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    font-size: 24px;
+    color: #000000;
+    margin-bottom: 50px; /* Añadir espacio debajo del título */
+    animation: fadeIn 1s ease-in-out;
+    text-align: center;
+}
+
+.form-container input {
+    display: block;
+    width: 92%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #d3d3d3;
+    border-radius: 40px;
+    font-size: 18px;
+    animation: fadeIn 1s ease-in-out;
+    /* Flip Animation: Rotates the element 360 degrees along the Y-axis, ideal for flipping cards or icons. */
+}
+
+.form-container button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    display: block;
+    width: 80%;
+    height: 40%;
+    padding: 9px;
+    background-color: #949494;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes wobble {
+    0% { transform: translateX(100%); }
+    15% { transform: translateX(-25%) rotate(-5deg); }
+    30% { transform: translateX(20%) rotate(3deg); }
+    45% { transform: translateX(-15%) rotate(-3deg); }
+    60% { transform: translateX(10%) rotate(2deg); }
+    75% { transform: translateX(-5%) rotate(-1deg); }
+    100% { transform: translateX(100%); }
+}
+
+.wobble {
+    animation: wobble 1s;
+}
+
+@keyframes flip {
+    0% { transform: perspective(400px) rotateY(0); }
+    100% { transform: perspective(400px) rotateY(360deg); }
+}
+
+.flip {
+    animation: flip 4s linear infinite; /* Aplicar la animación de giro */
+}
+
+.form-container button:hover {
+    background-color: #9b4040;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Aplicar la fuente Thin 100 al formulario de inicio de sesión */
+.thin-font {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
 }
