@@ -1,11 +1,10 @@
 body, html {
     margin: 0; /* Elimina el margen de la página */
-    padding:0; /* Elimina el relleno de la página */
+    padding: 0; /* Elimina el relleno de la página */
     height: 100%; /* Asegura que el cuerpo y el HTML ocupen toda la altura de la pantalla */
     overflow: unset !important; /* Habilita el desplazamiento vertical y horizontal */
-    max-height: 700px; /* Limita la altura de la página */
-    max-width: 400px; /* Limita el ancho de la página */
-
+    max-width: 400px; /* Limitar el ancho máximo a 400px */
+    max-height: 800px; /* Limitar el largo máximo a 800px */
 }
 
 .video-background {
@@ -77,7 +76,7 @@ body, html {
     top: 0;
     right: 0;
     bottom: 0;
-    margin-top: -40vh;
+    margin-top: -400px; /* Ajustar el margen superior a -400px */
 }
 
 .intro p {
@@ -112,6 +111,5 @@ body, html {
     animation-composition: backwards; /* Asegura que la animación se repita */
     animation-direction: normal; /* Asegura que la animación se repita */
     animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-
 }
 

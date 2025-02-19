@@ -4,6 +4,8 @@ body, html {
     height: 100%;
     overflow: auto; /* Habilitar desplazamiento vertical y horizontal */
     background-color: #eeeeee00; /* Fondo blanco */
+    max-width: 400px; /* Limitar el ancho máximo a 400px */
+    max-height: 800px; /* Limitar el largo máximo a 800px */
 }
 
 #particles-js {
@@ -34,7 +36,7 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 300vh; /* Asegurar que el contenido ocupe al menos la altura de la pantalla */
+    min-height: 300px; /* Asegurar que el contenido ocupe al menos 300px de altura */
     overflow: visible; /* Quitar barra de desplazamiento del centro */
 }
 
@@ -49,8 +51,8 @@ body, html {
 
 .header-title {
     font-family: 'Zen Dots', sans-serif;
-    font-size: 60px;
+    font-size: 80px; /* Mejorar la calidad del título aumentando el tamaño de la fuente */
     color: #000000;
     text-align: center;
-    margin-top: 17vh;
+    margin-top: 170px; /* Ajustar el margen superior a 170px */
 }

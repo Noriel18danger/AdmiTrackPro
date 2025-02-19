@@ -28,15 +28,21 @@
         Your browser does not support the video tag.
     </video>
     <header class="header">
-        <h1 class="header-title" id="header-title">SGCAR</h1>
+        <img src="images/logo.png" alt="Logo" class="header-logo">
     </header>
     <div class="content">
         <div id="text-container" class="container" style="max-width: 390px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
             <div class="form-container">
                 <form id="login-form" class="thin-font">
                     <h2>Inicio de Sesión</h2>
-                    <input type="text" id="user" placeholder="Usuario" required>
-                    <input type="password" id="password" placeholder="Contraseña" required>
+                    <div class="input-container">
+                        <input type="text" id="user" placeholder="Usuario" required>
+                        <img src="images/login.png" alt="Usuario Icono" class="input-icon">
+                    </div>
+                    <div class="input-container">
+                        <input type="password" id="password" placeholder="Contraseña" required>
+                        <img src="images/key.png" alt="Contraseña Icono" class="input-icon">
+                    </div>
                     <button type="submit">Iniciar Sesión</button>
                     <p>No tienes una cuenta de SGCAR?</p>
                     <button id="show-register-form" class="btn">Registrate Aquí</button>
@@ -62,7 +68,11 @@
     <script src="scripts.js"></script>
     <script src="background.js"></script>
     <script>
-        // Eliminar animaciones del título "SGCAR"
+        // Animación de entrada para el logo
+        document.addEventListener('DOMContentLoaded', function() {
+            const logo = document.querySelector('.header-logo');
+            gsap.fromTo(logo, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 1.5, ease: 'elastic.out(1, 0.5)' });
+        });
     </script>
     <script src="threejs-text.js"></script> <!-- Incluir el script para el texto en 3D -->
 
@@ -105,5 +115,16 @@
     <div class="links">
         <a href="https://dev.to/uuuuuulala/making-background-blob-animation-in-just-15kb-step-by-step-guide-2482" target="_blank">tutorial<img class="icon" src="https://ksenia-k.com/img/icons/link.svg"></a>
     </div>
+    <script>
+        // Animación de entrada y salida para el título "S G C A R"
+        document.addEventListener('DOMContentLoaded', function() {
+            const headerTitle = document.getElementById('header-title');
+            gsap.fromTo(headerTitle, { opacity: 0, y: -50 }, { opacity: 1, y: 0, duration: 1.5, ease: 'power2.out' });
+
+            window.addEventListener('beforeunload', function() {
+                gsap.to(headerTitle, { opacity: 0, y: 50, duration: 1.5, ease: 'power2.in' });
+            });
+        });
+    </script>
 </body>
 </html>

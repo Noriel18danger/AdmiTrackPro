@@ -3,6 +3,8 @@ body, html {
     padding: 0;
     height: 100%;
     overflow: hidden;
+    max-width: 400px; /* Limitar el ancho máximo a 400px */
+    max-height: 800px; /* Limitar el largo máximo a 800px */
 }
 #particles-js {
     position: absolute;
@@ -52,14 +54,13 @@ body, html {
     margin-bottom: 20px;
 }
 .intro h1 {
-    font-size: 30px;
+    font-size: 50px; /* Mejorar la calidad del título aumentando el tamaño de la fuente */
     margin-bottom: 10px;
-    font-size: 32px;
-    margin-top: -30vh;
+    font-size: 50px;
+    margin-top: -300px; /* Ajustar el margen superior a -300px */
     top: 0;
     left: 0;
     right: 0;
-
 }
 .intro p { /* Añadir animación de entrada */
     font-size: 15px;
