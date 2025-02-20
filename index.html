@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gruppo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="index.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
@@ -28,10 +29,10 @@
         Your browser does not support the video tag.
     </video>
     <header class="header">
-        <img src="images/logo.png" alt="Logo" class="header-logo">
+        <h1 class="header-title" style="font-family: 'Gruppo', sans-serif;">S G C A R</h1>
     </header>
     <div class="content">
-        <div id="text-container" class="container" style="max-width: 390px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <div id="text-container" class="container" style="max-width: 390px; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
             <div class="form-container">
                 <form id="login-form" class="thin-font">
                     <h2>Inicio de Sesión</h2>
@@ -43,19 +44,19 @@
                         <input type="password" id="password" placeholder="Contraseña" required>
                         <img src="images/key.png" alt="Contraseña Icono" class="input-icon">
                     </div>
-                    <button type="submit">Iniciar Sesión</button>
+                    <button type="submit" class="btn" style="display: block; margin: 0 auto;">Iniciar Sesión</button>
                     <p>No tienes una cuenta de SGCAR?</p>
-                    <button id="show-register-form" class="btn">Registrate Aquí</button>
+                    <button id="show-register-form" class="btn" style="display: block; margin: 0 auto;">Registrate Aquí</button>
                 </form>
                 <form id="registro-form" style="display: none;">
-                    <h2>Registro de Usuario</h2>
+                    <h2>Registro</h2>
                     <input type="text" id="nombre" placeholder="Nombre" required>
                     <input type="text" id="apellido" placeholder="Apellido" required>
                     <input type="text" id="rut" placeholder="RUT" required>
                     <input type="text" id="recinto" placeholder="Recinto (Opcional)">
                     <input type="email" id="correo" placeholder="Correo Electrónico" required>
                     <input type="text" id="telefono" placeholder="Número Telefónico" required>
-                    <button type="submit">Registrarse</button>
+                    <button type="submit" class="btn" style="display: block; margin: 0 auto;">Registrarse</button>
                 </form>
             </div>
             <div class="footer">

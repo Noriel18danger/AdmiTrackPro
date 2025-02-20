@@ -311,12 +311,21 @@ body, html {
 }
 
 .header-title {
-    font-family: 'Faster One', sans-serif; /* Cambiar la fuente a Faster One */
-    font-size: 50px; /* Ajustar el tamaño de la fuente para móviles */
-    color: #e7e7e7;
-    margin-top: 10px; /* Añadir espacio encima del título */
+    font-family: 'Gruppo', sans-serif; /* Cambiar la fuente a Gruppo */
+    font-size: 30px; /* Ajustar el tamaño de la fuente */
+    font-weight: 1; /* Ajustar el grosor de la fuente */
+    color: #000000;
+    margin-top: 20vh; /* Añadir espacio encima del título */
     text-align: center;
     margin-top: 4vh; /* Ajustar el margen superior a 6vh */
+    animation: fadeIn 1s ease-in-out; /* Fade In Animation: Smoothly transitions the element from invisible to visible. Customize as needed. */
+    margin-top: 5vh;
+}
+
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 .header-logo {
@@ -328,7 +337,7 @@ body, html {
 
 /* Estilos adicionales para SVG y enlaces */
 body {
-    background-color: #000000;
+    background-color: #ffffff;
 }
 
 svg {
@@ -349,7 +358,7 @@ svg {
 
 a {
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: rgba(86, 43, 43, 0);
     margin-left: 1em;
 }
 
@@ -365,7 +374,7 @@ a img.icon {
 
 /* Configuración para cambiar todos los colores del SVG adicional */
 svg path {
-    fill: #a1a1a170; /* Cambiar el color de relleno de todos los caminos del SVG */
+    fill: #5f8a9135; /* Cambiar el color de relleno de todos los caminos del SVG */
 }
 
 /* Estilos para el formulario de registro e inicio de sesión */
@@ -399,9 +408,9 @@ svg path {
     text-align: center;
     margin-top: -140px;
     padding: 16px; /* Añadir espacio alrededor del formulario */
-    background-color: #cbcbcb;
+    background-color: #dfeaec;
     border-radius: 45px;
-    box-shadow: 0 0 60px rgb(0, 0, 0);
+    box-shadow: 0 0 60px rgb(255, 255, 255);
     position: center;
     width: 93%;
     max-width: 400px;
@@ -461,8 +470,8 @@ svg path {
     width: 80%; /* Ajustar el ancho del botón */
     height: 40%; /* Ajustar la altura del botón */
     padding: 9px; /* Añadir espacio interno */
-    background-color: #949494;
-    color: rgb(255, 255, 255);
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: 40px;
     font-size: 16px;
@@ -471,7 +480,7 @@ svg path {
 }
 
 .form-container button:hover {
-    background-color: #34b80f;
+    background-color: #d6e3e3;
     animation: fadeIn 1s ease-in-out;
 }
 
