@@ -1,246 +1,34 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: auto; /* Permitir desplazamiento vertical y horizontal */
-}
-
-#threejs-container {
-    position: absolute;
+#loader {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
-}
-
-#background-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -2;
-}
-
-.content {
-    position: relative;
-    z-index: 1;
-    color: white;
-    text-align: center;
-    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 9999;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Asegurar que el contenido ocupe al menos la altura de la pantalla */
+    transition: opacity 0.5s ease;
 }
 
-.header {
-    width: 100%; /* Ajustar el ancho del encabezado */
-    height: 40px;
-    display: flex; /* Alinear elementos en fila */
-    justify-content: center; /* Centrar elementos horizontalmente */
-    align-items: center;
-    padding: 20px 0; /* Añadir espacio alrededor del encabezado */
-    background-color: #00000000; /* Cambiar el color del encabezado a verde */
-    position: fixed; /* Hacer que el encabezado se mantenga a la vista */
-    top: 0; /* Alinear el encabezado en la parte superior */
-    z-index: 1000; /* Asegurar que el encabezado esté por encima de otros elementos */
-}
-
-.header-title {
-    font-family: 'Gruppo', sans-serif; /* Cambiar la fuente a Gruppo */
-    font-size: 30px; /* Ajustar el tamaño de la fuente */
-    font-weight: 1; /* Ajustar el grosor de la fuente */
-    color: #000000;
-    margin-top: 20vh; /* Añadir espacio encima del título */
-    text-align: center;
-    margin-top: 4vh; /* Ajustar el margen superior a 6vh */
-    animation: fadeIn 1s ease-in-out; /* Fade In Animation: Smoothly transitions the element from invisible to visible. Customize as needed. */
-    margin-top: 2vh;
-}
-
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-.header-logo {
-    width: 100px; /* Ajustar el tamaño del logo */
-    height: auto; /* Mantener la proporción del logo */
-    animation: bounceLogo 2s infinite; /* Añadir animación al logo */
-    margin-top: 6vh;
-}
-
-.container {
-    max-width: 400px; /* Ajustar el ancho del contenedor */
-    margin: 0 auto; /* Centrar el contenedor horizontalmente */
-    padding: 0px; /* Añadir espacio alrededor del contenedor */
-    text-align: center; /* Centrar el texto en el contenedor */
-    margin-top: 50vh; /* Ajustar el margen superior */
-    margin-bottom: 50vh; 
-}
-
-.buttons {
-    display: flex; /* Alinear los botones en fila */
-    flex-wrap: wrap; /* Ajustar los botones a la siguiente línea */
-    justify-content: center;
-    gap: 30px; /* Espacio entre los botones */
-    max-width: 300px; /* Ajustar el ancho de los botones */
-}
-
-/* From Uiverse.io by cssbuttons-io */
-.btn {
-    position: relative;
-    font-size: 17px;
-    text-transform: uppercase; /* Convertir el texto a mayúsculas */
-    text-decoration: none; /* Quitar subrayado */
-    padding: 1em 2.5em; /* Añadir espacio alrededor del texto */
-    display: inline-block; /* Mostrar los botones en línea */
-    cursor: pointer; /* Cambiar el cursor al pasar el cursor */
-    border-radius: 50px; /* Ajustar el radio de borde */
-    transition: all 0.2s; /* Añadir una transición suave */
-    border: none; /* Quitar el borde */
-    font-family: 'Gruppo'; /* Heredar la fuente del elemento padre */
-    font-weight: 500; /* Ajustar el grosor de la fuente */
-    color: black; /* Cambiar el color del texto */
-    background-color: white; /* Cambiar el color de fondo */
-    box-shadow: 0 5px 15px rgba(97, 97, 97, 0.285); /* Añadir sombra */
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    background-color: #b9cccf; /* Cambiar el color de fondo al pasar el cursor */
-    text-decoration: none; /* Quitar subrayado al pasar el cursor */
-}
-
-.btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.btn::after {
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 100px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all 0.4s;
-}
-
-.btn::after {
-    background-color: #fff;
-}
-
-.btn:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
+#loader.hidden {
     opacity: 0;
+    visibility: hidden;
 }
 
-.footer {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #00000054;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    animation: fadeIn 1.5s ease-in-out;
-    padding-left: 0px;
-    padding-right: 0px;
-    margin-bottom: 0px;
-    max-width: 400px; /* Ajustar el ancho de la descripción */
+.loader-spinner {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
 }
 
-.footer p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #ffffff;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px); /* Añadir movimiento vertical */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-body {
-    background-color: #e6edef;
-}
-
-svg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-}
-
-.links {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    font-size: 18px;
-    font-family: sans-serif;
-}
-
-a {
-    text-decoration: none;
-    color: rgba(0, 0, 0, 0);
-    margin-left: 1em;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-a img.icon {
-    display: inline-block; /* Mostrar los iconos en línea */
-    height: 1.2em; /* Ajustar la altura de los iconos */
-    margin: 0 0 -0em 0em; /* Ajustar el margen de los iconos */
-}
-
-/* Configuración para cambiar todos los colores del SVG adicional */
-svg path {
-    fill: #5f8a9139; /* Cambiar el color de relleno de todos los caminos del SVG */
-}
-
-/* Estilos para los iconos */
-.icon-container {
-    display: flex; /* Alinear los iconos en fila */
-    justify-content: center; /* Centrar los iconos horizontalmente */
-    gap: 1px; /* Espacio entre los iconos */
-    position: fixed; /* Mantener los iconos en una posición fija */
-    top: 15vh; /* Ajustar la posición superior */
-    width: 100%; /* Asegurar que el contenedor ocupe todo el ancho */
-    z-index: 3; /* Asegurar que los iconos estén por encima del fondo */
-}
-
-.icon-link {
-    display: inline-block; /* Mostrar los iconos en línea */
-    transition: transform 0.3s; /* Añadir una transición suave al cambiar la escala */
-}
-
-.icon-link:hover .icon {
-    transform: scale(1.6); /* Aumentar el tamaño del icono al pasar el cursor */
-}
-
-.icon {
-    width: 50px; /* Ajustar el ancho de los iconos */
-    height: 50px; /* Ajustar la altura de los iconos */
-    transition: transform 0.3s; /* Añadir una transición suave al cambiar la escala */
-    filter: invert(0); /* Cambiar el color de los iconos a negro */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 /* From Uiverse.io by InfinityLoopGames */
@@ -249,6 +37,16 @@ svg path {
     --primary: rgb(56, 56, 56);
     --primary-light: #5c5c5c;
     --primary-rgba: rgba(39, 94, 254, 0);
+    width: 200px;
+    height: 320px;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+@media (max-width: 480px) {
+    .loader {
+        zoom: 0.44;
+    }
 }
 
 .loader:before, .loader:after {
