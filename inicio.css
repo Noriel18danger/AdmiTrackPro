@@ -5,24 +5,23 @@ body, html {
     overflow: auto; /* Permitir desplazamiento vertical y horizontal */
 }
 
-#particles-js {
+#threejs-container {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: #000000;
-    background-size: cover;
-    background-position: 50% 50%;
     z-index: -1;
 }
 
-#particles-title {
+#background-video {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
+    object-fit: cover;
+    z-index: -2;
 }
 
 .content {
@@ -38,179 +37,120 @@ body, html {
     min-height: 100vh; /* Asegurar que el contenido ocupe al menos la altura de la pantalla */
 }
 
-.site-header {
-    background-color: #000000;
-    padding: 10px 0;
-    text-align: center;
-    border-bottom: 1px solid #000000;
-    width: 100%;
-    display: flex;
+.header {
+    width: 100%; /* Ajustar el ancho del encabezado */
+    height: 40px;
+    display: flex; /* Alinear elementos en fila */
+    justify-content: center; /* Centrar elementos horizontalmente */
     align-items: center;
-    justify-content: space-between;
+    padding: 20px 0; /* Añadir espacio alrededor del encabezado */
+    background-color: #00000000; /* Cambiar el color del encabezado a verde */
+    position: fixed; /* Hacer que el encabezado se mantenga a la vista */
+    top: 0; /* Alinear el encabezado en la parte superior */
+    z-index: 1000; /* Asegurar que el encabezado esté por encima de otros elementos */
 }
 
-.site-header .logo-link {
-    text-decoration: none;
-    color: #ffffff;
-    flex-grow: 1;
+.header-title {
+    font-family: 'Gruppo', sans-serif; /* Cambiar la fuente a Gruppo */
+    font-size: 30px; /* Ajustar el tamaño de la fuente */
+    font-weight: 1; /* Ajustar el grosor de la fuente */
+    color: #000000;
+    margin-top: 20vh; /* Añadir espacio encima del título */
     text-align: center;
+    margin-top: 4vh; /* Ajustar el margen superior a 6vh */
+    animation: fadeIn 1s ease-in-out; /* Fade In Animation: Smoothly transitions the element from invisible to visible. Customize as needed. */
+    margin-top: 2vh;
 }
 
-.site-header .logo {
-    margin: 0;
-    font-size: 2.25em;
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
-.back-button {
-    margin-left: 20px;
-}
-
-.back-button-img {
-    width: 30px;
-    height: 30px;
-}
-
-.spacer {
-    width: 30px; /* Espacio para mantener el logo centrado */
-    height: 30px;
-    margin-right: 20px;
+.header-logo {
+    width: 100px; /* Ajustar el tamaño del logo */
+    height: auto; /* Mantener la proporción del logo */
+    animation: bounceLogo 2s infinite; /* Añadir animación al logo */
+    margin-top: 6vh;
 }
 
 .container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 0px;
-    text-align: center;
-}
-
-.intro {
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.intro h1 {
-    font-family: 'Arial', sans-serif;
-    margin-bottom: 10px;
-    font-size: 32px;
-    margin-top: -30vh;
-    top: 0;
-    left: 0;
-    right: 0;
-    animation: fadeIn 2s ease-in-out;
-}
-
-.intro p {
-    font-family: 'arial', sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    animation: fadeIn 1s ease-in-out;
-    text-align: center;
-}
-
-.start-title {
-    font-family: 'Faster One', sans-serif;
-    font-size: 38px;
-    color: #d1c7c7;
-    margin-bottom: 10px; /* Añadir espacio debajo del título */
-    margin-bottom: -180px; /* Añadir espacio debajo del título */
-    margin-top: 180vh;
-    text-transform: uppercase;
-    animation: bounceTitle 1.5s infinite alternate; /* Aplicar una animación diferente */
-}
-
-@keyframes moveTitle {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-20px);
-    }
-}
-
-@keyframes bounceTitle {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-.icon-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 35px; /* Espacio entre los iconos */
-    margin-bottom: -150px; /* Añadir espacio debajo de los iconos */
-    margin-top: 200vh;
-    color: rgb(255, 0, 0);
-}
-
-.icon-button {
-    display: inline-block;
-    transition: transform 0.3s, box-shadow 0.3s;
-    color: rgb(255, 0, 0);
-}
-
-.icon-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-    color: rgb(255, 0, 0);
-}
-
-.icon-img {
-    width: 50px;
-    height: 50px;
-    filter: invert(38%) sepia(100%) saturate(1000%) hue-rotate(0deg) brightness(100%) contrast(100%); /* Color rojo */
-    color: rgb(255, 0, 0);
+    max-width: 400px; /* Ajustar el ancho del contenedor */
+    margin: 0 auto; /* Centrar el contenedor horizontalmente */
+    padding: 0px; /* Añadir espacio alrededor del contenedor */
+    text-align: center; /* Centrar el texto en el contenedor */
+    margin-top: 50vh; /* Ajustar el margen superior */
+    margin-bottom: 50vh; 
 }
 
 .buttons {
-    display: flex;
-    flex-wrap: wrap;
+    display: flex; /* Alinear los botones en fila */
+    flex-wrap: wrap; /* Ajustar los botones a la siguiente línea */
     justify-content: center;
-    gap: 10px; /* Espacio entre los botones */
-    margin-bottom: 20px; /* Añadir espacio debajo de los botones */
-    max-width: 400px; /* Ajustar el ancho de los botones */
-    margin-top: 30vh;
+    gap: 30px; /* Espacio entre los botones */
+    max-width: 300px; /* Ajustar el ancho de los botones */
 }
 
+/* From Uiverse.io by cssbuttons-io */
 .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #ff0000;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 10px;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    font-size: 14px; /* Tamaño de la fuente */
-    font-weight: 700;   /* Grosor de la fuente */
-    text-align: center; /* Centrar el texto */
-    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1);
-    text-transform: uppercase; /* Todo en mayúsculas */
-    margin-right: 0px; /* Espacio entre los botones */
-    max-width: 300px;
-    margin-top: 1vh;
+    position: relative;
+    font-size: 17px;
+    text-transform: uppercase; /* Convertir el texto a mayúsculas */
+    text-decoration: none; /* Quitar subrayado */
+    padding: 1em 2.5em; /* Añadir espacio alrededor del texto */
+    display: inline-block; /* Mostrar los botones en línea */
+    cursor: pointer; /* Cambiar el cursor al pasar el cursor */
+    border-radius: 50px; /* Ajustar el radio de borde */
+    transition: all 0.2s; /* Añadir una transición suave */
+    border: none; /* Quitar el borde */
+    font-family: 'Gruppo'; /* Heredar la fuente del elemento padre */
+    font-weight: 500; /* Ajustar el grosor de la fuente */
+    color: black; /* Cambiar el color del texto */
+    background-color: white; /* Cambiar el color de fondo */
+    box-shadow: 0 5px 15px rgba(97, 97, 97, 0.285); /* Añadir sombra */
 }
 
 .btn:hover {
-    background-color: #cc0000;
-    transform: scale(1.05);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-    text-align: center;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background-color: #b9cccf; /* Cambiar el color de fondo al pasar el cursor */
+    text-decoration: none; /* Quitar subrayado al pasar el cursor */
 }
 
-.description {
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+}
+
+.btn::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.footer {
     margin-top: 20px;
     padding: 20px;
     background-color: #00000054;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
+    text-align: center;
     animation: fadeIn 1.5s ease-in-out;
     padding-left: 0px;
     padding-right: 0px;
@@ -218,14 +158,7 @@ body, html {
     max-width: 400px; /* Ajustar el ancho de la descripción */
 }
 
-.description h2 {
-    font-family: 'arial', sans-serif;
-    font-size: 28px;
-    color: #ff0000;
-    margin-bottom: 10px;
-}
-
-.description p {
+.footer p {
     font-size: 16px;
     line-height: 1.6;
     color: #ffffff;
@@ -242,16 +175,70 @@ body, html {
     }
 }
 
-@keyframes bounceIn {
-    0% {
-        transform: scale(0.3); /* Aumentar la escala inicial */
-        opacity: 0;
-    }
-    50% {
-        transform: scale(1.2); /* Aumentar la escala intermedia */
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1);
-    }
+body {
+    background-color: #e6edef;
+}
+
+svg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.links {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0);
+    margin-left: 1em;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a img.icon {
+    display: inline-block; /* Mostrar los iconos en línea */
+    height: 1.2em; /* Ajustar la altura de los iconos */
+    margin: 0 0 -0em 0em; /* Ajustar el margen de los iconos */
+}
+
+/* Configuración para cambiar todos los colores del SVG adicional */
+svg path {
+    fill: #5f8a9139; /* Cambiar el color de relleno de todos los caminos del SVG */
+}
+
+/* Estilos para los iconos */
+.icon-container {
+    display: flex; /* Alinear los iconos en fila */
+    justify-content: center; /* Centrar los iconos horizontalmente */
+    gap: 1px; /* Espacio entre los iconos */
+    position: fixed; /* Mantener los iconos en una posición fija */
+    top: 15vh; /* Ajustar la posición superior */
+    width: 100%; /* Asegurar que el contenedor ocupe todo el ancho */
+    z-index: 3; /* Asegurar que los iconos estén por encima del fondo */
+}
+
+.icon-link {
+    display: inline-block; /* Mostrar los iconos en línea */
+    transition: transform 0.3s; /* Añadir una transición suave al cambiar la escala */
+}
+
+.icon-link:hover .icon {
+    transform: scale(1.6); /* Aumentar el tamaño del icono al pasar el cursor */
+}
+
+.icon {
+    width: 50px; /* Ajustar el ancho de los iconos */
+    height: 50px; /* Ajustar la altura de los iconos */
+    transition: transform 0.3s; /* Añadir una transición suave al cambiar la escala */
+    filter: invert(0); /* Cambiar el color de los iconos a negro */
 }

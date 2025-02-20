@@ -299,7 +299,7 @@ body, html {
 
 .header {
     width: 100%; /* Ajustar el ancho del encabezado */
-    height: 30px;
+    height: 40px;
     display: flex; /* Alinear elementos en fila */
     justify-content: center; /* Centrar elementos horizontalmente */
     align-items: center;
@@ -319,7 +319,7 @@ body, html {
     text-align: center;
     margin-top: 4vh; /* Ajustar el margen superior a 6vh */
     animation: fadeIn 1s ease-in-out; /* Fade In Animation: Smoothly transitions the element from invisible to visible. Customize as needed. */
-    margin-top: 5vh;
+    margin-top: 2vh;
 }
 
 
@@ -489,4 +489,13 @@ svg path {
 .thin-font {
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
+}
+
+/* Estilos para los iconos */
+.icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    vertical-align: middle;
+    margin-right: 8px;
 }

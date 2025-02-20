@@ -31,6 +31,20 @@
     <header class="header">
         <h1 class="header-title" style="font-family: 'Gruppo', sans-serif;">S G C A R</h1>
     </header>
+    <div class="icon-container">
+        <a href="usuario.html" class="icon-link">
+            <img src="images/user.png" alt="Usuario" class="icon">
+        </a>
+        <a href="notificaciones.html" class="icon-link">
+            <img src="images/notification.svg" alt="Notificaciones" class="icon">
+        </a>
+        <a href="manual_usuario.html" class="icon-link">
+            <img src="images/manual.svg" alt="Manual" class="icon">
+        </a>
+        <a href="index.html" class="icon-link" onclick="cerrarSesion()">
+            <img src="images/logout.png" alt="Cerrar Sesión" class="icon">
+        </a>
+    </div>
     <div class="content" style="overflow-y: auto; max-height: calc(100vh - 100px);">
         <div id="text-container" class="container" style="max-width: 390px; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
             <div class="form-container">
@@ -84,6 +98,11 @@
             document.getElementById('registro-form').style.display = 'none';
             document.getElementById('login-form').style.display = 'block';
         });
+
+        function cerrarSesion() {
+            localStorage.removeItem('usuario');
+            window.location.href = 'index.html';
+        }
     </script>
     <script src="threejs-text.js"></script> <!-- Incluir el script para el texto en 3D -->
 

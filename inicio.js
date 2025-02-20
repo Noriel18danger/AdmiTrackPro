@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Redirigir a index.html si no se ha iniciado sesión
+    if (!localStorage.getItem('usuario')) {
+        window.location.href = 'index.html';
+    }
+
     particlesJS('particles-js', {
         particles: {
             number: {
@@ -108,5 +113,19 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         },
         retina_detect: true
+    });
+
+    function cerrarSesion() {
+        localStorage.removeItem('usuario');
+        window.location.href = 'index.html';
+    }
+
+    document.querySelectorAll('.icon-link').forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            if (this.getAttribute('href') === 'index.html') {
+                cerrarSesion();
+                event.preventDefault();
+            }
+        });
     });
 });

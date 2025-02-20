@@ -9,86 +9,102 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gruppo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="inicio.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        .icon:hover {
+            transform: scale(1.2);
+            transition: transform 0.2s;
+        }
+    </style>
 </head>
 <body>
-    <div id="particles-js"></div>
+    <div id="threejs-container"></div>
+    <video autoplay muted loop id="background-video">
+        <source src="/video/fondo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <header class="header">
+        <h1 class="header-title" style="font-family: 'Gruppo', sans-serif;">S G C A R</h1>
+    </header>
+    <div class="icon-container">
+        <a href="usuario.html" class="icon-link">
+            <img src="images/user.svg" alt="Usuario" class="icon" style="filter: invert(0);">
+        </a>
+        <a href="notificaciones.html" class="icon-link">
+            <img src="images/notification.svg" alt="Notificaciones" class="icon" style="filter: invert(0);">
+        </a>
+        <a href="manual_usuario.html" class="icon-link">
+            <img src="images/manual.svg" alt="Manual" class="icon" style="filter: invert(0);">
+        </a>
+        <a href="index.html" class="icon-link" onclick="cerrarSesion()">
+            <img src="images/logout.svg" alt="Cerrar Sesión" class="icon" style="filter: invert(0);">
+        </a>
+    </div>
     <div class="content">
-        <header class="site-header">
-            <a href="javascript:history.back()" class="back-button">
-                <img src="images/atras.png" alt="Regresar" class="back-button-img">
-            </a>
-            <a href="inicio.html" class="logo-link">
-                <h1 class="logo">AdmiTrackPro</h1>
-            </a>
-            <div class="spacer"></div>
-        </header>
         <div class="container" style="max-width: 400px;">
-            <div class="intro">
-                <p>Bienvenido a la plataforma móvil de AdmiTrackPro. Aquí puedes gestionar tus tareas de manera eficiente.</p>
-                <div id="particles-title"></div>
-                <div class="icon-buttons">
-                    <a href="usuario.html" class="icon-button">
-                        <img src="images/usuario.png" alt="Usuario" class="icon-img">
-                    </a>
-                    <a href="manual_usuario.html" class="icon-button">
-                        <img src="images/manual.png" alt="Manual" class="icon-img">
-                    </a>
-                    <a href="notificaciones.html" class="icon-button">
-                        <img src="images/notificaciones.png" alt="Notificaciones" class="icon-img">
-                    </a>
-                    <a href="index.html" class="icon-button" onclick="cerrarSesion()">
-                        <img src="images/cerrarsesion.png" alt="Cerrar Sesión" class="icon-img">
-                    </a>
-                </div>
-                <div class="buttons">
-                    <a href="vehiculos.html" class="btn">Vehículos</a>
-                    <a href="inventario.html" class="btn">Inventario</a>
-                    <a href="agenda.html" class="btn">Agenda</a>
-                    <a href="administracion.html" class="btn">Administración</a>
-                    <a href="taller_mecanico.html" class="btn">Taller Mecánico</a>
-                    <a href="pagos.html" class="btn">Pagos</a>
-                    <a href="estadisticas.html" class="btn">Estadísticas</a>
-                    <a href="control_mejoras.html" class="btn">Control de Mejoras</a>
-                </div>
-                <div class="description">
-                    <h2 style="text-align: center;">¿Qué es AdmiTrackPro?</h2>
-                    <p style="text-align: center;">AdmiTrackPro es una plataforma web diseñada para la gestión integral de un taller mecánico. Con esta herramienta, puedes registrar, gestionar y controlar todos los aspectos de tu taller, incluyendo vehículos, logística, trabajadores, pagos, agenda y citas, y control de mejoras. Nuestra plataforma está optimizada para dispositivos móviles, ofreciendo una experiencia de usuario cómoda y eficiente.</p>
-                </div>
-                <div class="description">
-                    <h2 style="text-align: center;">Quiénes somos</h2>
-                    <p style="text-align: center;">Somos un equipo de profesionales dedicados a proporcionar soluciones tecnológicas para la gestión de talleres mecánicos. Nuestro objetivo es facilitar la administración y mejorar la eficiencia operativa de nuestros clientes.</p>
-                </div>
-                <div class="description">
-                    <h2 style="text-align: center;">Misión</h2>
-                    <p style="text-align: center;">Nuestra misión es ofrecer una plataforma integral que permita a los talleres mecánicos gestionar sus operaciones de manera eficiente, mejorando la productividad y la satisfacción del cliente.</p>
-                </div>
-                <div class="description">
-                    <h2 style="text-align: center;">Visión</h2>
-                    <p style="text-align: center;">Ser la plataforma líder en gestión de talleres mecánicos, reconocida por su innovación, facilidad de uso y capacidad para transformar la manera en que se administran los talleres.</p>
-                </div>
-                <div class="description">
-                    <h2 style="text-align: center;">Objetivo para el usuario</h2>
-                    <p style="text-align: center;">Proporcionar a los usuarios una herramienta poderosa y fácil de usar que les permita gestionar todas las áreas de su taller mecánico, desde la administración de vehículos hasta la gestión de pagos y citas.</p>
-                </div>
+            <div class="buttons" style="margin-top: 20vh;">
+                <a href="vehiculos.html" class="btn">Vehículos</a>
+                <a href="inventario.html" class="btn">Inventario</a>
+                <a href="agenda.html" class="btn">Agenda</a>
+                <a href="pagos.html" class="btn">Pagos</a>
+                <a href="estadisticas.html" class="btn">Estadísticas</a>
             </div>
             <div class="footer">
                 <p>&copy; 2023 AdmiTrackPro. Todos los derechos reservados.</p>
             </div>
         </div>
     </div>
+    <div id="alert" class="alert"></div>
     <script src="inicio.js"></script>
     <script src="scripts.js"></script>
+    <script src="background.js"></script>
+    <!-- Single file SVG animation -->
+    <svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 100 100" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -3;">
+        <defs>
+            <style>
+                @keyframes rotate {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                }
+                .out-top {
+                    animation: rotate 20s linear infinite;
+                    transform-origin: 13px 25px;
+                }
+                .in-top {
+                    animation: rotate 10s linear infinite;
+                    transform-origin: 13px 25px;
+                }
+                .out-bottom {
+                    animation: rotate 25s linear infinite;
+                    transform-origin: 84px 93px;
+                }
+                .in-bottom {
+                    animation: rotate 15s linear infinite;
+                    transform-origin: 84px 93px;
+                }
+            </style>
+        </defs>
+        <path fill="#9b5de5" class="out-top" d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"/>
+        <path fill="#f15bb5" class="in-top" d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z"/>
+        <path fill="#00bbf9" class="out-bottom" d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"/>
+        <path fill="#00f5d4" class="in-bottom" d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"/>
+    </svg>
+    <div class="links">
+        <a href="https://dev.to/uuuuuulala/making-background-blob-animation-in-just-15kb-step-by-step-guide-2482" target="_blank">tutorial<img class="icon" src="https://ksenia-k.com/img/icons/link.svg"></a>
+    </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const startTitle = document.querySelector('.start-title');
-            startTitle.style.animation = 'bounceTitle 1.5s infinite alternate'; // Aplicar una animación diferente
-
             // Redirigir a index.html si no se ha iniciado sesión
             if (!localStorage.getItem('usuario')) {
                 window.location.href = 'index.html';
