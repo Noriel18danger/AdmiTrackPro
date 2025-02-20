@@ -437,13 +437,14 @@ svg path {
 
 .form-container input {
     display: block;
-    width: 81%;
+    width: 85%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #d3d3d3;
     border-radius: 40px;
     font-size: 18px;
     animation: fadeIn 1s ease-in-out;
+    margin-top: 2vh;
 }
 
 .input-container {
